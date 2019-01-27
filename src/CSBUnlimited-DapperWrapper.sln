@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSBUnlimited.DapperWrapper.Core", "CSBUnlimited.DapperWrapper.Core\CSBUnlimited.DapperWrapper.Core.csproj", "{CD2F05EB-7AD0-4F81-9B79-1E16363C92BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSBUnlimited.DapperWrapper.DataAccess", "CSBUnlimited.DapperWrapper.DataAccess\CSBUnlimited.DapperWrapper.DataAccess.csproj", "{ACCB4773-1B02-4F20-9F06-D0FA3731BE0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD2F05EB-7AD0-4F81-9B79-1E16363C92BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD2F05EB-7AD0-4F81-9B79-1E16363C92BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD2F05EB-7AD0-4F81-9B79-1E16363C92BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD2F05EB-7AD0-4F81-9B79-1E16363C92BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACCB4773-1B02-4F20-9F06-D0FA3731BE0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCB4773-1B02-4F20-9F06-D0FA3731BE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCB4773-1B02-4F20-9F06-D0FA3731BE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCB4773-1B02-4F20-9F06-D0FA3731BE0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D858DFCF-A1B0-45DE-8A46-70316CB28DA2}
+	EndGlobalSection
+EndGlobal
