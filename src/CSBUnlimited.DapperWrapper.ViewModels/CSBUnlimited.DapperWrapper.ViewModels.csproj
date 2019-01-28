@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>CSBUnlimited.DapperWrapper</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSBUnlimited.DapperWrapper.Core\CSBUnlimited.DapperWrapper.Core.csproj" />
+  </ItemGroup>
+
+</Project>
