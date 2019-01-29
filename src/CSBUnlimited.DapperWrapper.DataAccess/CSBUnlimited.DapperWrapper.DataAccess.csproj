@@ -5,4 +5,9 @@
     <RootNamespace>CSBUnlimited.DapperWrapper</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CSBUnlimited.DapperWrapper.Core\CSBUnlimited.DapperWrapper.Core.csproj" />
+    <ProjectReference Include="..\CSBUnlimited.DapperWrapper.ViewModels\CSBUnlimited.DapperWrapper.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>
