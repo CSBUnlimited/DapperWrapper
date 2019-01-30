@@ -28,9 +28,12 @@ namespace CSBUnlimited.DapperWrapper
         /// <summary>
         /// Whether transaction is started or not
         /// </summary>
-        protected bool IsTransactionStarted;
+        private bool _isTransactionStarted;
 
-        protected bool IsSingleTransactionStarted;
+        /// <summary>
+        /// Whether Query is executing using this connection or ot
+        /// </summary>
+        private bool _isSingleTransactionStarted;
 
         protected BaseDbConnector()
         { }
@@ -40,8 +43,14 @@ namespace CSBUnlimited.DapperWrapper
             ConnectionString = connectionString;
         }
 
+        /// <summary>
+        /// Open connection for there respective Database
+        /// </summary>
         public abstract void OpenConnection();
 
+        /// <summary>
+        /// Close connection with database
+        /// </summary>
         public void CloseConnection()
         {
             if (Connection.State != ConnectionState.Closed)
@@ -52,55 +61,73 @@ namespace CSBUnlimited.DapperWrapper
             Connection.Dispose();
         }
 
+        /// <summary>
+        /// To track and open connection for a query
+        /// </summary>
         public void CheckAndOpenConnectionForSingleTransaction()
         {
-            if (IsSingleTransactionStarted)
+            if (_isSingleTransactionStarted)
                 return;
 
             if (Transaction?.Connection == null)
             {
                 OpenConnection();
-                IsSingleTransactionStarted = true;
+                _isSingleTransactionStarted = true;
             }
         }
 
+        /// <summary>
+        /// To track and close connection with database
+        /// </summary>
         public void CheckAndCloseConnectionForSingleTransaction()
         {
-            if (!IsSingleTransactionStarted)
+            if (!_isSingleTransactionStarted)
                 return;
 
             CloseConnection();
-            IsSingleTransactionStarted = false;
+            _isSingleTransactionStarted = false;
         }
 
+        /// <summary>
+        /// Begin a transaction
+        /// </summary>
         public void BeginTransaction()
         {
-            if (IsTransactionStarted)
+            if (_isTransactionStarted)
                 return;
 
             Transaction = Connection.BeginTransaction();
-            IsTransactionStarted = true;
+            _isTransactionStarted = true;
         }
 
+        /// <summary>
+        /// Commit a transaction
+        /// </summary>
         public void CommitTransaction()
         {
-            if (IsTransactionStarted)
+            if (_isTransactionStarted)
                 return;
 
             Transaction.Commit();
-            IsTransactionStarted = false;
+            _isTransactionStarted = false;
         }
 
+        /// <summary>
+        /// Rollback a transaction
+        /// </summary>
         public void RollbackTransaction()
         {
-            if (!IsTransactionStarted)
+            if (!_isTransactionStarted)
                 return;
 
             Transaction.Rollback();
-            IsTransactionStarted = false;
+            _isTransactionStarted = false;
             Transaction.Dispose();
         }
 
+        /// <summary>
+        /// Dispose connection data
+        /// </summary>
         public void Dispose()
         {
             if (Connection == null)
