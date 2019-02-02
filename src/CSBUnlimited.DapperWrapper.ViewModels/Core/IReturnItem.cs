@@ -5,7 +5,7 @@
         /// <summary>
         /// Status defined by the SP
         /// </summary>
-        long ReturnValue { get; set; }
+        short ReturnValue { get; set; }
 
         /// <summary>
         /// Returned parameters list
