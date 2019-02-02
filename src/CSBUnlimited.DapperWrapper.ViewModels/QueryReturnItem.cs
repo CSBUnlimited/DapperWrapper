@@ -8,7 +8,7 @@ namespace CSBUnlimited.DapperWrapper
         /// <summary>
         /// Status defined by the SP
         /// </summary>
-        public short ReturnValue { get; set; }
+        public int ReturnValue { get; set; }
 
         /// <summary>
         /// Returned parameters list
@@ -18,7 +18,7 @@ namespace CSBUnlimited.DapperWrapper
         /// <summary>
         /// List of data items. 
         /// </summary>
-        public IList<T> DataItemList { get; set; }
+        public IEnumerable<T> DataItemList { get; set; }
 
         /// <summary>
         /// Initialize to default values

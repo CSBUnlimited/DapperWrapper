@@ -11,7 +11,7 @@ namespace CSBUnlimited.DapperWrapper
         /// <summary>
         /// Status defined by the SP
         /// </summary>
-        public short ReturnValue { get; set; }
+        public int ReturnValue { get; set; }
 
         /// <summary>
         /// Returned parameters list
