@@ -1,16 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>CSBUnlimited.DapperWrapper</RootNamespace>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="1.50.5" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CSBUnlimited.DapperWrapper.Core\CSBUnlimited.DapperWrapper.Core.csproj" />
+    <ProjectReference Include="..\CSBUnlimited.DapperWrapper.DataAccess\CSBUnlimited.DapperWrapper.DataAccess.csproj" />
     <ProjectReference Include="..\CSBUnlimited.DapperWrapper.ViewModels\CSBUnlimited.DapperWrapper.ViewModels.csproj" />
   </ItemGroup>
 

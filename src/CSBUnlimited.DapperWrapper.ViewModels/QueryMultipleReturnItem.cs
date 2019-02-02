@@ -1,4 +1,5 @@
 ﻿using CSBUnlimited.DapperWrapper.Core;
+using System.Collections.Generic;
 
 namespace CSBUnlimited.DapperWrapper
 {
@@ -15,9 +16,9 @@ namespace CSBUnlimited.DapperWrapper
         public IDbParameterList ReturnParametersCollection { get; set; }
 
         /// <summary>
-        /// List of data items. 
+        /// List of dynamic data items. 
         /// </summary>
-        public dynamic Data { get; set; }
+        public IEnumerable<dynamic> DataLists { get; set; }
 
         /// <summary>
         /// Initialize to default values
