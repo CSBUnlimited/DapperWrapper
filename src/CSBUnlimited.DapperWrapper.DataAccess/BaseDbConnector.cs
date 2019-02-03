@@ -144,6 +144,7 @@ namespace CSBUnlimited.DapperWrapper
 
             return null;
         }
+
         /// <summary>
         /// Open connection for there respective Database
         /// </summary>
