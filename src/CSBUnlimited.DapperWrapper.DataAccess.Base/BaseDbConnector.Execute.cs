@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using static Dapper.SqlMapper;
 
-namespace CSBUnlimited.DapperWrapper
+namespace CSBUnlimited.DapperWrapper.Base
 {
     public partial class BaseDbConnector : IDbConnector
     {

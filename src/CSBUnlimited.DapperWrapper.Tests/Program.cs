@@ -13,7 +13,7 @@
             };
             
 
-            var t = dbConnector.ExecuteQueryMultipleStoredProcedure<dynamic, dynamic, dynamic>("[usm].[Test_DapperWrapper]", dataParameters);
+            QueryMultipleListsReturnItem<dynamic, dynamic, dynamic> t = dbConnector.ExecuteQueryMultipleStoredProcedure<dynamic, dynamic, dynamic>("[usm].[Test_DapperWrapper]", dataParameters);
 
             var d = dbConnector.ExecuteQueryMultipleStoredProcedure("[usm].[Test_DapperWrapper]", dataParameters);
 

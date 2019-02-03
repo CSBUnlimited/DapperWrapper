@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using CSBUnlimited.DapperWrapper.Base;
 
 namespace CSBUnlimited.DapperWrapper
 {
-    public class SqlServerConnector : BaseDbConnector, IDbConnector
+    public sealed class SqlServerConnector : BaseDbConnector, IDbConnector
     {
         /// <summary>
         /// Sql Server Connector - Constructor

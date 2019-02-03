@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-namespace CSBUnlimited.DapperWrapper
+namespace CSBUnlimited.DapperWrapper.Base
 {
     public abstract partial class BaseDbConnector : IDbConnector
     {
