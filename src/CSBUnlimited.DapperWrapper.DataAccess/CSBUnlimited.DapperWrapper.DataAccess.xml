@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSBUnlimited.DapperWrapper.DataAccess</name>
+    </assembly>
+    <members>
+        <member name="M:CSBUnlimited.DapperWrapper.SqlServerConnector.#ctor(System.String)">
+            <summary>
+            Sql Server Connector - Constructor
+            </summary>
+            <param name="connectionString">Connection string for database</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.SqlServerConnector.OpenConnection">
+            <summary>
+            Open connection for Sql Server database
+            </summary>
+        </member>
+    </members>
+</doc>

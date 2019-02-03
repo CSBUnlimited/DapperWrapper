@@ -1,0 +1,925 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSBUnlimited.DapperWrapper.DataAccess.Base</name>
+    </assembly>
+    <members>
+        <member name="F:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ReturnValueParameterName">
+            <summary>
+            Constant for ReturnValue parameter name
+            </summary>
+        </member>
+        <member name="F:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ReturnValueDbType">
+            <summary>
+            Constant for ReturnValue size
+            </summary>
+        </member>
+        <member name="F:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ReturnValueSize">
+            <summary>
+            Constant for ReturnValue dbtype
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ConnectionString">
+            <summary>
+            Database configurations
+            </summary>
+        </member>
+        <member name="F:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.Connection">
+            <summary>
+            Database connection
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.Transaction">
+            <summary>
+            Database connection
+            </summary>
+        </member>
+        <member name="F:CSBUnlimited.DapperWrapper.Base.BaseDbConnector._isTransactionStarted">
+            <summary>
+            Whether transaction is started or not
+            </summary>
+        </member>
+        <member name="F:CSBUnlimited.DapperWrapper.Base.BaseDbConnector._isSingleTransactionStarted">
+            <summary>
+            Whether Query is executing using this connection or ot
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.#ctor(System.String)">
+            <summary>
+            Base Db Connector - Constructor
+            Set ReturnValueParameterName as @RETURN_VALUE.
+            </summary>
+            <param name="connectionString">Connection String</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.#ctor(System.String,System.String)">
+            <summary>
+            Base Db Connector - Constructor
+            </summary>
+            <param name="connectionString">Connection String</param>
+            <param name="returnValueParameterName">Stored proceure's return value parameter name(should be Int16 type or lower)</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.GetOutputParameterValue(System.String,System.Data.DbType,Dapper.DynamicParameters)">
+            <summary>
+            Get Output Parameter Value - This method is overridable.
+            Cast DbTypes to Dotnet Types.
+            PS: DbType.Currency cast to doubale and DbType.Xml throws NotImplementedException.
+            </summary>
+            <param name="parameterName">Parameter Name</param>
+            <param name="parameterDbType">Parameter DbType</param>
+            <param name="parameters">Parameters</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.OpenConnection">
+            <summary>
+            Open connection for there respective Database
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.CloseConnection">
+            <summary>
+            Close connection with database
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.OpenConnectionForSingleTransaction">
+            <summary>
+            To track and open connection for a query
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.CloseConnectionForSingleTransaction">
+            <summary>
+            To track and close connection with database
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.BeginTransaction">
+            <summary>
+            Begin a transaction
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.CommitTransaction">
+            <summary>
+            Commit a transaction
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.RollbackTransaction">
+            <summary>
+            Rollback a transaction
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.Dispose">
+            <summary>
+            Dispose connection data
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteNonQuery(System.String,System.Data.CommandType,Dapper.DynamicParameters)">
+            <summary>
+            Execute Non Query
+            </summary>
+            <param name="sqlQuery">SQL Query</param>
+            <param name="commandType">SQL Query command type</param>
+            <param name="parameters">Parameters</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQuery``1(System.String,System.Data.CommandType,Dapper.DynamicParameters)">
+            <summary>
+            Execute Query
+            </summary>
+            <typeparam name="T">Return Type</typeparam>
+            <param name="sqlQuery">SQL Query</param>
+            <param name="commandType">SQL Query command type</param>
+            <param name="parameters">Parameters</param>
+            <returns>List of T</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteSingleOrDefaultQuery``1(System.String,System.Data.CommandType,Dapper.DynamicParameters)">
+            <summary>
+            Execute Single Or Default Query.
+            Return excepton if returns mor than one.
+            </summary>
+            <typeparam name="T">Return Type</typeparam>
+            <param name="sqlQuery">SQL Query</param>
+            <param name="commandType">SQL Query command type</param>
+            <param name="parameters">Parameters</param>
+            <returns>Object of T</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultiple(System.String,System.Data.CommandType,Dapper.DynamicParameters)">
+            <summary>
+            Execute Query Multiple
+            </summary>
+            <param name="sqlQuery">SQL Query</param>
+            <param name="commandType">SQL Query command type</param>
+            <param name="parameters">Parameters</param>
+            <returns>GridReader</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteNonQueryAsync(System.String,System.Data.CommandType,Dapper.DynamicParameters)">
+            <summary>
+            Execute Non Query - Async
+            </summary>
+            <param name="sqlQuery">SQL Query</param>
+            <param name="commandType">SQL Query command type</param>
+            <param name="parameters">Parameters</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryAsync``1(System.String,System.Data.CommandType,Dapper.DynamicParameters)">
+            <summary>
+            Execute Query - Async
+            </summary>
+            <typeparam name="T">Return Type</typeparam>
+            <param name="sqlQuery">SQL Query</param>
+            <param name="commandType">SQL Query command type</param>
+            <param name="parameters">Parameters</param>
+            <returns>List of T</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteSingleOrDefaultQueryAsync``1(System.String,System.Data.CommandType,Dapper.DynamicParameters)">
+            <summary>
+            Execute Single Or Default Query - Async.
+            Return excepton if returns mor than one.
+            </summary>
+            <typeparam name="T">Return Type</typeparam>
+            <param name="sqlQuery">SQL Query</param>
+            <param name="commandType">SQL Query command type</param>
+            <param name="parameters">Parameters</param>
+            <returns>Object of T</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleAsync(System.String,System.Data.CommandType,Dapper.DynamicParameters)">
+            <summary>
+            Execute Query Multiple - Async
+            </summary>
+            <param name="sqlQuery">SQL Query</param>
+            <param name="commandType">SQL Query command type</param>
+            <param name="parameters">Parameters</param>
+            <returns>GridReader</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteNonQuerySqlText(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes non-query sql text.
+            </summary>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>NonQueryReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQuerySqlText``1(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for a list.
+            </summary>
+            <typeparam name="T">Type of the list of returned model</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQuerySqlTextSingleOrDefault``1(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for single data record.
+            </summary>
+            <typeparam name="T">Type of the returned model</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QuerySingleOrDefaultReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlText(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for multiple datasets.
+            </summary>        
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.QueryMultipleSingleWithListSqlText``2(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for item with list.
+            </summary>
+            <typeparam name="TFirst">Type of first item</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlText``2(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 2 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlText``3(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 3 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlText``4(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 4 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlText``5(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 5 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlText``6(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 6 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of fifth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlText``7(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 7 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlText``8(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 8 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlText``9(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 9 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <typeparam name="TNineth">Type of nineth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlText``10(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 10 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <typeparam name="TNineth">Type of nineth list</typeparam>
+            <typeparam name="TTenth">Type of tenth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteNonQuerySqlTextAsync(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes non-query sql text - Async.
+            </summary>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>NonQueryReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQuerySqlTextAsync``1(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for a list - Async.
+            </summary>
+            <typeparam name="T">Type of the list of returned model</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQuerySqlTextSingleOrDefaultAsync``1(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for single data record - Async.
+            </summary>
+            <typeparam name="T">Type of the returned model</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QuerySingleOrDefaultReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlTextAsync(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for multiple datasets - Async.
+            </summary>        
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.QueryMultipleSingleWithListSqlTextAsync``2(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for item with list - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first item</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlTextAsync``2(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 2 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlTextAsync``3(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 3 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlTextAsync``4(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 4 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlTextAsync``5(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 5 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlTextAsync``6(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 6 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of fifth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlTextAsync``7(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 7 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlTextAsync``8(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 8 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlTextAsync``9(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 9 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <typeparam name="TNineth">Type of nineth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleSqlTextAsync``10(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query sql text for 10 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <typeparam name="TNineth">Type of nineth list</typeparam>
+            <typeparam name="TTenth">Type of tenth list</typeparam>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteNonQueryStoredProcedure(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes non-query stored procedures.
+            </summary>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>NonQueryReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryStoredProcedure``1(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedure for a list.
+            </summary>
+            <typeparam name="T">Type of the list of returned model</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryStoredProcedureSingleOrDefault``1(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for single data record.
+            </summary>
+            <typeparam name="T">Type of the returned model</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QuerySingleOrDefaultReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedure(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for multiple datasets.
+            </summary>        
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.QueryMultipleSingleWithListStoredProcedure``2(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for item with list.
+            </summary>
+            <typeparam name="TFirst">Type of first item</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedure``2(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 2 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedure``3(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 3 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedure``4(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 4 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedure``5(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 5 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedure``6(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 6 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of fifth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedure``7(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 7 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedure``8(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 8 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedure``9(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 9 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <typeparam name="TNineth">Type of nineth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedure``10(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 10 lists.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <typeparam name="TNineth">Type of nineth list</typeparam>
+            <typeparam name="TTenth">Type of tenth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteNonQueryStoredProcedureAsync(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes non-query stored procedures - Async.
+            </summary>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>NonQueryReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryStoredProcedureAsync``1(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedure for a list - Async.
+            </summary>
+            <typeparam name="T">Type of the list of returned model</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryStoredProcedureSingleOrDefaultAsync``1(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for single data record - Async.
+            </summary>
+            <typeparam name="T">Type of the returned model</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QuerySingleOrDefaultReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedureAsync(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for multiple datasets - Async.
+            </summary>        
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.QueryMultipleSingleWithListStoredProcedureAsync``2(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for item with list - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first item</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedureAsync``2(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 2 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedureAsync``3(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 3 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedureAsync``4(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 4 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedureAsync``5(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 5 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedureAsync``6(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 6 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of fifth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedureAsync``7(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 7 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedureAsync``8(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 8 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedureAsync``9(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 9 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <typeparam name="TNineth">Type of nineth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteQueryMultipleStoredProcedureAsync``10(System.String,CSBUnlimited.DapperWrapper.IDbParameterList,System.Boolean)">
+            <summary>
+            Executes query stored procedures for 10 lists - Async.
+            </summary>
+            <typeparam name="TFirst">Type of first list</typeparam>
+            <typeparam name="TSecond">Type of second list</typeparam>
+            <typeparam name="TThird">Type of third list</typeparam>
+            <typeparam name="TForth">Type of forth list</typeparam>
+            <typeparam name="TFifth">Type of fifth list</typeparam>
+            <typeparam name="TSixth">Type of sixth list</typeparam>
+            <typeparam name="TSeventh">Type of seventh list</typeparam>
+            <typeparam name="TEighth">Type of eighth list</typeparam>
+            <typeparam name="TNineth">Type of nineth list</typeparam>
+            <typeparam name="TTenth">Type of tenth list</typeparam>
+            <param name="storedProcedureName">Name of the stored procedure</param>
+            <param name="parametersCollection">Input/Output parameter list</param>
+            <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+            <returns>QueryMultipleListsReturnItem</returns>
+        </member>
+    </members>
+</doc>

@@ -5,4 +5,8 @@
     <RootNamespace>CSBUnlimited.DapperWrapper</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>CSBUnlimited.DapperWrapper.Core.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

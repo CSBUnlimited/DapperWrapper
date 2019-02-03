@@ -5,6 +5,10 @@
     <RootNamespace>CSBUnlimited.DapperWrapper</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>CSBUnlimited.DapperWrapper.DataAccess.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\CSBUnlimited.DapperWrapper.DataAccess.Base\CSBUnlimited.DapperWrapper.DataAccess.Base.csproj" />
   </ItemGroup>

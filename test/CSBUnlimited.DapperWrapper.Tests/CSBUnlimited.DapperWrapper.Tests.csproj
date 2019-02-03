@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CSBUnlimited.DapperWrapper.DataAccess\CSBUnlimited.DapperWrapper.DataAccess.csproj" />
+    <PackageReference Include="CSBUnlimited.DapperWrapper" Version="0.10.1" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSBUnlimited.DapperWrapper.Core</name>
+    </assembly>
+    <members>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.DbType">
+            <summary>
+            DbType of the parameter
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.Direction">
+            <summary>
+            Direction of the parameter
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.IsNullable">
+            <summary>
+            Is Nullable of the parameter
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.ParameterName">
+            <summary>
+            Name of the parameter
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.SourceColumn">
+            <summary>
+            Precision of the parameter
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.SourceVersion">
+            <summary>
+            Source Version of the parameter
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.Value">
+            <summary>
+            Value of the parameter
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.Precision">
+            <summary>
+            Precision of the parameter
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.Scale">
+            <summary>
+            Scale of the parameter
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.Size">
+            <summary>
+            Size of the parameter
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbDataParameter.#ctor">
+            <summary>
+            Empty constructor
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbDataParameter.#ctor(System.String,System.Object,System.Data.DbType,System.Data.ParameterDirection)">
+            <summary>
+            Default constructor to be used
+            </summary>
+            <param name="parameterName">Name of the parameter. ex: @Name</param>
+            <param name="value">Value of the parameter</param>
+            <param name="dbType">Default: DbType.String, Database type of the parameter</param>
+            <param name="direction">Default: ParameterDirection.Input, Direction of the parameter. ex: Input/Output</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbDataParameterBuilder.GetParameters(System.Object)">
+            <summary>
+            Extracts parameters from the model
+            </summary>
+            <param name="model">Model to be parsed</param>
+            <returns>List of parameters built from the model properties</returns>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.DbDataParameterMeta">
+            <summary>
+            Used to apply the visibility in conversion Model => DbDataParameter list 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameterMeta.Visible">
+            <summary>
+            Sets and gets the visibility in the parameter list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameterMeta.ParameterName">
+            <summary>
+            Sets or gets the name of the parameter
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameterMeta.DbType">
+            <summary>
+            Sets or gets the parameter db type
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameterMeta.Direction">
+            <summary>
+            Sets or gets the parameter db type
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbDataParameterMeta.Size">
+            <summary>
+            Sets or gets the parameter size
+            </summary>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.IDbDataParameterBuilder">
+            <summary>
+            Builds db parameters using the model
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.IDbDataParameterBuilder.GetParameters(System.Object)">
+            <summary>
+            Extracts parameters from the model
+            </summary>
+            <param name="model">Model to be parsed</param>
+            <returns>List of parameters built from the model properties</returns>
+        </member>
+    </members>
+</doc>

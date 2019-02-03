@@ -1,0 +1,529 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSBUnlimited.DapperWrapper.ViewModels</name>
+    </assembly>
+    <members>
+        <member name="P:CSBUnlimited.DapperWrapper.Core.IReturnItem.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.Core.IReturnItem.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.NonQueryReturnItem.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.NonQueryReturnItem.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.NonQueryReturnItem.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.FirstCollection">
+            <summary>
+            List of parent data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.SecondCollection">
+            <summary>
+            List of children data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.ThirdCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.FourthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.FifthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.SixthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.SeventhCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.EighthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.FirstCollection">
+            <summary>
+            List of parent data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.SecondCollection">
+            <summary>
+            List of children data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.ThirdCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.FourthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.FifthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4.FirstCollection">
+            <summary>
+            List of parent data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4.SecondCollection">
+            <summary>
+            List of children data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4.ThirdCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4.FourthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.FirstCollection">
+            <summary>
+            List of parent data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.SecondCollection">
+            <summary>
+            List of children data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.ThirdCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.FourthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.FifthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.SixthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.SeventhCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.EighthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.NinethCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.FirstCollection">
+            <summary>
+            List of parent data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.SecondCollection">
+            <summary>
+            List of children data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.ThirdCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.FourthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.FifthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.SixthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.SeventhCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.FirstCollection">
+            <summary>
+            List of parent data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.SecondCollection">
+            <summary>
+            List of children data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.ThirdCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.FourthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.FifthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.SixthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.FirstCollection">
+            <summary>
+            List of parent data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.SecondCollection">
+            <summary>
+            List of children data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.ThirdCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.FourthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.FifthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.SixthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.SeventhCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.EighthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.NinethCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.TenthCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`3.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`3.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`3.FirstCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`3.SecondCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`3.ThirdCollection">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`3.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`2.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`2.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`2.FirstCollection">
+            <summary>
+            List of parent data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`2.SecondCollection">
+            <summary>
+            List of children data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`2.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleReturnItem.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleReturnItem.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleReturnItem.DataLists">
+            <summary>
+            List of dynamic data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleReturnItem.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleSingleAndListReturnItem`2.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleSingleAndListReturnItem`2.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleSingleAndListReturnItem`2.FirstItem">
+            <summary>
+            List of parent data items. 
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleSingleAndListReturnItem`2.SecondCollection">
+            <summary>
+            List of children data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryMultipleSingleAndListReturnItem`2.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryReturnItem`1.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryReturnItem`1.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryReturnItem`1.DataItemList">
+            <summary>
+            List of data items. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryReturnItem`1.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1">
+            <summary>
+            Wraps the returned items for general query which returns single data row
+            </summary>
+            <typeparam name="T">Queried object type</typeparam>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1.ReturnValue">
+            <summary>
+            Status defined by the SP
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1.DataItem">
+            <summary>
+            Data item which returns from teh SP. 
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
+    </members>
+</doc>
