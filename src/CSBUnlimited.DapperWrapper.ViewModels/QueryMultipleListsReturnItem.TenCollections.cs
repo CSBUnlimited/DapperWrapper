@@ -71,7 +71,6 @@ namespace CSBUnlimited.DapperWrapper
         /// </summary>
         public QueryMultipleListsReturnItem()
         {
-            ReturnValue = -1;
             ReturnParametersCollection = new DbParameterList();
             FirstCollection = new List<TFirst>();
             SecondCollection = new List<TSecond>();

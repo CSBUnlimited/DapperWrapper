@@ -30,7 +30,6 @@ namespace CSBUnlimited.DapperWrapper
         /// </summary>
         public QueryMultipleSingleAndListReturnItem()
         {
-            ReturnValue = -1;
             ReturnParametersCollection = new DbParameterList();
             SecondCollection = new List<TSecond>();
         }

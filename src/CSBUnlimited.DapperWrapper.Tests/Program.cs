@@ -16,6 +16,15 @@
             var t = dbConnector.ExecuteQueryMultipleStoredProcedure<dynamic, dynamic, dynamic>("[usm].[Test_DapperWrapper]", dataParameters);
 
             var d = dbConnector.ExecuteQueryMultipleStoredProcedure("[usm].[Test_DapperWrapper]", dataParameters);
+
+            IDbParameterList dataParameters2 = new DbParameterList()
+            {
+                new DbDataParameter("@BaseAgentId", 5, dbType: System.Data.DbType.Int32)
+            };
+
+            var x = dbConnector.ExecuteQueryMultipleSqlText<dynamic, dynamic>(
+                $"SELECT * FROM usm.ApplicationUser ; Select* from usm.Agent where BaseAgentId = @BaseAgentId;",
+                dataParameters2);
         }
     }
 }

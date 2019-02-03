@@ -19,7 +19,6 @@ namespace CSBUnlimited.DapperWrapper
         /// </summary>
         public NonQueryReturnItem()
         {
-            ReturnValue = -1;
             ReturnParametersCollection = new DbParameterList();
         }
     }

@@ -5,107 +5,107 @@ namespace CSBUnlimited.DapperWrapper
 {
     public partial interface IDbConnector : IDisposable
 	{
-		/// <summary>
-		/// Asynchronously executes non-query stored procedures.
-		/// </summary>
-		/// <param name="storedProcedureName">Name of the stored procedure</param>
-		/// <param name="parametersCollection">Input/Output parameter list</param>
-		/// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
-		/// <returns>NonQueryReturnItem</returns>
-		Task<NonQueryReturnItem> ExecuteNonQueryStoredProcedureAsync(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+        /// <summary>
+        /// Executes non-query sql text - Async.
+        /// </summary>
+        /// <param name="sqlQueryText">SQL Query Text</param>
+        /// <param name="parametersCollection">Input/Output parameter list</param>
+        /// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
+        /// <returns>NonQueryReturnItem</returns>
+        Task<NonQueryReturnItem> ExecuteNonQuerySqlTextAsync(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
-		/// <summary>
-		/// Asynchronously executes query stored procedure for a list. Ex: Select
+        /// <summary>
+		/// Executes query sql text for a list - Async.
 		/// </summary>
 		/// <typeparam name="T">Type of the list of returned model</typeparam>
-		/// <param name="storedProcedureName">Name of the stored procedure</param>
+		/// <param name="sqlQueryText">SQL Query Text</param>
 		/// <param name="parametersCollection">Input/Output parameter list</param>
 		/// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
 		/// <returns>QueryReturnItem</returns>
-		Task<QueryReturnItem<T>> ExecuteQueryStoredProcedureAsync<T>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+		Task<QueryReturnItem<T>> ExecuteQuerySqlTextAsync<T>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
-		/// <summary>
-		/// Asynchronously executes query stored procedures for single data record. Ex: Select 1 record
+        /// <summary>
+		/// Executes query sql text for single data record - Async.
 		/// </summary>
 		/// <typeparam name="T">Type of the returned model</typeparam>
-		/// <param name="storedProcedureName">Name of the stored procedure</param>
+		/// <param name="sqlQueryText">SQL Query Text</param>
 		/// <param name="parametersCollection">Input/Output parameter list</param>
 		/// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
 		/// <returns>QuerySingleOrDefaultReturnItem</returns>
-		Task<QuerySingleOrDefaultReturnItem<T>> ExecuteQueryStoredProcedureSingleOrDefaultAsync<T>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+		Task<QuerySingleOrDefaultReturnItem<T>> ExecuteQuerySqlTextSingleOrDefaultAsync<T>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
-		/// <summary>
-		/// Asynchronously executes query stored procedures for multiple datasets.
+        /// <summary>
+		/// Executes query sql text for multiple datasets - Async.
 		/// </summary>        
-		/// <param name="storedProcedureName">Name of the stored procedure</param>
+		/// <param name="sqlQueryText">SQL Query Text</param>
 		/// <param name="parametersCollection">Input/Output parameter list</param>
 		/// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
 		/// <returns>QueryMultipleReturnItem</returns>
-		Task<QueryMultipleReturnItem> ExecuteQueryMultipleStoredProcedureAsync(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+		Task<QueryMultipleReturnItem> ExecuteQueryMultipleSqlTextAsync(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
-		/// <summary>
-		/// Asynchronously executes query stored procedures for item with list.
+        /// <summary>
+		/// Executes query sql text for item with list - Async.
 		/// </summary>
 		/// <typeparam name="TFirst">Type of first item</typeparam>
 		/// <typeparam name="TSecond">Type of second list</typeparam>
-		/// <param name="storedProcedureName">Name of the stored procedure</param>
+		/// <param name="sqlQueryText">SQL Query Text</param>
 		/// <param name="parametersCollection">Input/Output parameter list</param>
 		/// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
 		/// <returns>QueryMultipleListsReturnItem</returns>
-		Task<QueryMultipleSingleAndListReturnItem<TFirst, TSecond>> QueryMultipleSingleWithListStoredProcedureAsync<TFirst, TSecond>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+		Task<QueryMultipleSingleAndListReturnItem<TFirst, TSecond>> QueryMultipleSingleWithListSqlTextAsync<TFirst, TSecond>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
-		/// <summary>
-		/// Asynchronously executes query stored procedures for 2 lists.
+        /// <summary>
+		/// Executes query sql text for 2 lists - Async.
 		/// </summary>
 		/// <typeparam name="TFirst">Type of first list</typeparam>
 		/// <typeparam name="TSecond">Type of second list</typeparam>
-		/// <param name="storedProcedureName">Name of the stored procedure</param>
+		/// <param name="sqlQueryText">SQL Query Text</param>
 		/// <param name="parametersCollection">Input/Output parameter list</param>
 		/// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
 		/// <returns>QueryMultipleListsReturnItem</returns>
-		Task<QueryMultipleListsReturnItem<TFirst, TSecond>> ExecuteQueryMultipleStoredProcedureAsync<TFirst, TSecond>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+		Task<QueryMultipleListsReturnItem<TFirst, TSecond>> ExecuteQueryMultipleSqlTextAsync<TFirst, TSecond>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
-		/// <summary>
-		/// Asynchronously executes query stored procedures for 3 lists.
+        /// <summary>
+		/// Executes query sql text for 3 lists - Async.
 		/// </summary>
 		/// <typeparam name="TFirst">Type of first list</typeparam>
 		/// <typeparam name="TSecond">Type of second list</typeparam>
 		/// <typeparam name="TThird">Type of third list</typeparam>
-		/// <param name="storedProcedureName">Name of the stored procedure</param>
+		/// <param name="sqlQueryText">SQL Query Text</param>
 		/// <param name="parametersCollection">Input/Output parameter list</param>
 		/// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
 		/// <returns>QueryMultipleListsReturnItem</returns>
-		Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird>> ExecuteQueryMultipleStoredProcedureAsync<TFirst, TSecond, TThird>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+		Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird>> ExecuteQueryMultipleSqlTextAsync<TFirst, TSecond, TThird>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
         /// <summary>
-        /// Asynchronously executes query stored procedures for 4 lists.
+        /// Executes query sql text for 4 lists - Async.
         /// </summary>
         /// <typeparam name="TFirst">Type of first list</typeparam>
         /// <typeparam name="TSecond">Type of second list</typeparam>
         /// <typeparam name="TThird">Type of third list</typeparam>
         /// <typeparam name="TForth">Type of forth list</typeparam>
-        /// <param name="storedProcedureName">Name of the stored procedure</param>
+        /// <param name="sqlQueryText">SQL Query Text</param>
         /// <param name="parametersCollection">Input/Output parameter list</param>
         /// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
         /// <returns>QueryMultipleListsReturnItem</returns>
-        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth>> ExecuteQueryMultipleStoredProcedureAsync<TFirst, TSecond, TThird, TForth>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth>> ExecuteQueryMultipleSqlTextAsync<TFirst, TSecond, TThird, TForth>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
         /// <summary>
-        /// Asynchronously executes query stored procedures for 5 lists.
+        /// Executes query sql text for 5 lists - Async.
         /// </summary>
         /// <typeparam name="TFirst">Type of first list</typeparam>
         /// <typeparam name="TSecond">Type of second list</typeparam>
         /// <typeparam name="TThird">Type of third list</typeparam>
         /// <typeparam name="TForth">Type of forth list</typeparam>
         /// <typeparam name="TFifth">Type of fifth list</typeparam>
-        /// <param name="storedProcedureName">Name of the stored procedure</param>
+        /// <param name="sqlQueryText">SQL Query Text</param>
         /// <param name="parametersCollection">Input/Output parameter list</param>
         /// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
         /// <returns>QueryMultipleListsReturnItem</returns>
-        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth>> ExecuteQueryMultipleStoredProcedureAsync<TFirst, TSecond, TThird, TForth, TFifth>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth>> ExecuteQueryMultipleSqlTextAsync<TFirst, TSecond, TThird, TForth, TFifth>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
         /// <summary>
-        /// Asynchronously executes query stored procedures for 6 lists.
+        /// Executes query sql text for 6 lists - Async.
         /// </summary>
         /// <typeparam name="TFirst">Type of first list</typeparam>
         /// <typeparam name="TSecond">Type of second list</typeparam>
@@ -113,14 +113,14 @@ namespace CSBUnlimited.DapperWrapper
         /// <typeparam name="TForth">Type of forth list</typeparam>
         /// <typeparam name="TFifth">Type of fifth list</typeparam>
         /// <typeparam name="TSixth">Type of fifth list</typeparam>
-        /// <param name="storedProcedureName">Name of the stored procedure</param>
+        /// <param name="sqlQueryText">SQL Query Text</param>
         /// <param name="parametersCollection">Input/Output parameter list</param>
         /// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
         /// <returns>QueryMultipleListsReturnItem</returns>
-        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth>> ExecuteQueryMultipleStoredProcedureAsync<TFirst, TSecond, TThird, TForth, TFifth, TSixth>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth>> ExecuteQueryMultipleSqlTextAsync<TFirst, TSecond, TThird, TForth, TFifth, TSixth>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
         /// <summary>
-        /// Asynchronously executes query stored procedures for 7 lists.
+        /// Executes query sql text for 7 lists - Async.
         /// </summary>
         /// <typeparam name="TFirst">Type of first list</typeparam>
         /// <typeparam name="TSecond">Type of second list</typeparam>
@@ -129,14 +129,14 @@ namespace CSBUnlimited.DapperWrapper
         /// <typeparam name="TFifth">Type of fifth list</typeparam>
         /// <typeparam name="TSixth">Type of sixth list</typeparam>
         /// <typeparam name="TSeventh">Type of seventh list</typeparam>
-        /// <param name="storedProcedureName">Name of the stored procedure</param>
+        /// <param name="sqlQueryText">SQL Query Text</param>
         /// <param name="parametersCollection">Input/Output parameter list</param>
         /// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
         /// <returns>QueryMultipleListsReturnItem</returns>
-        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh>> ExecuteQueryMultipleStoredProcedureAsync<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh>> ExecuteQueryMultipleSqlTextAsync<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
         /// <summary>
-        /// Asynchronously executes query stored procedures for 8 lists.
+        /// Executes query sql text for 8 lists - Async.
         /// </summary>
         /// <typeparam name="TFirst">Type of first list</typeparam>
         /// <typeparam name="TSecond">Type of second list</typeparam>
@@ -146,14 +146,14 @@ namespace CSBUnlimited.DapperWrapper
         /// <typeparam name="TSixth">Type of sixth list</typeparam>
         /// <typeparam name="TSeventh">Type of seventh list</typeparam>
         /// <typeparam name="TEighth">Type of eighth list</typeparam>
-        /// <param name="storedProcedureName">Name of the stored procedure</param>
+        /// <param name="sqlQueryText">SQL Query Text</param>
         /// <param name="parametersCollection">Input/Output parameter list</param>
         /// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
         /// <returns>QueryMultipleListsReturnItem</returns>
-        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth>> ExecuteQueryMultipleStoredProcedureAsync<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth>> ExecuteQueryMultipleSqlTextAsync<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
         /// <summary>
-        /// Asynchronously executes query stored procedures for 9 lists.
+        /// Executes query sql text for 9 lists - Async.
         /// </summary>
         /// <typeparam name="TFirst">Type of first list</typeparam>
         /// <typeparam name="TSecond">Type of second list</typeparam>
@@ -164,14 +164,14 @@ namespace CSBUnlimited.DapperWrapper
         /// <typeparam name="TSeventh">Type of seventh list</typeparam>
         /// <typeparam name="TEighth">Type of eighth list</typeparam>
         /// <typeparam name="TNineth">Type of nineth list</typeparam>
-        /// <param name="storedProcedureName">Name of the stored procedure</param>
+        /// <param name="sqlQueryText">SQL Query Text</param>
         /// <param name="parametersCollection">Input/Output parameter list</param>
         /// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
         /// <returns>QueryMultipleListsReturnItem</returns>
-        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth>> ExecuteQueryMultipleStoredProcedureAsync<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth>> ExecuteQueryMultipleSqlTextAsync<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
 
         /// <summary>
-        /// Asynchronously executes query stored procedures for 10 lists.
+        /// Executes query sql text for 10 lists - Async.
         /// </summary>
         /// <typeparam name="TFirst">Type of first list</typeparam>
         /// <typeparam name="TSecond">Type of second list</typeparam>
@@ -183,10 +183,10 @@ namespace CSBUnlimited.DapperWrapper
         /// <typeparam name="TEighth">Type of eighth list</typeparam>
         /// <typeparam name="TNineth">Type of nineth list</typeparam>
         /// <typeparam name="TTenth">Type of tenth list</typeparam>
-        /// <param name="storedProcedureName">Name of the stored procedure</param>
+        /// <param name="sqlQueryText">SQL Query Text</param>
         /// <param name="parametersCollection">Input/Output parameter list</param>
         /// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
         /// <returns>QueryMultipleListsReturnItem</returns>
-        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth, TTenth>> ExecuteQueryMultipleStoredProcedureAsync<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth, TTenth>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+        Task<QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth, TTenth>> ExecuteQueryMultipleSqlTextAsync<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth, TTenth>(string sqlQueryText, IDbParameterList parametersCollection, bool isReturnValueExists = false);
     }
 }

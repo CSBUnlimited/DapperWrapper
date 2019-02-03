@@ -25,7 +25,6 @@ namespace CSBUnlimited.DapperWrapper
         /// </summary>
         public QueryReturnItem()
         {
-            ReturnValue = -1;
             ReturnParametersCollection = new DbParameterList();
         }
     }
