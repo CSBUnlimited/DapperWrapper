@@ -14,6 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CSBUnlimited.DapperWrapper.DataAccess.Base\CSBUnlimited.DapperWrapper.DataAccess.Base.csproj" />
   </ItemGroup>
 
