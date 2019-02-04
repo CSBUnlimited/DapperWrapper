@@ -4,6 +4,12 @@
         <name>CSBUnlimited.DapperWrapper.ViewModels</name>
     </assembly>
     <members>
+        <member name="T:CSBUnlimited.DapperWrapper.Core.IReturnItem">
+            <summary>
+            Basic items required for return item.
+            Only for internal usage not for external usage
+            </summary>
+        </member>
         <member name="P:CSBUnlimited.DapperWrapper.Core.IReturnItem.ReturnValue">
             <summary>
             Status defined by the SP
@@ -12,6 +18,11 @@
         <member name="P:CSBUnlimited.DapperWrapper.Core.IReturnItem.ReturnParametersCollection">
             <summary>
             Returned parameters list
+            </summary>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.NonQueryReturnItem">
+            <summary>
+            Use when execute query with out quering from DB
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.NonQueryReturnItem.ReturnValue">
@@ -28,6 +39,19 @@
             <summary>
             Initialize to default values
             </summary>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8">
+            <summary>
+            Use when execute query with eight queries from DB.
+            </summary>
+            <typeparam name="TFirst">First queried list data type</typeparam>
+            <typeparam name="TSecond">Second queried list data type</typeparam>
+            <typeparam name="TThird">Third queried list data type</typeparam>
+            <typeparam name="TFourth">Forth queried list data type</typeparam>
+            <typeparam name="TFifth">Fifth queried list data type</typeparam>
+            <typeparam name="TSixth">Sixth queried list data type</typeparam>
+            <typeparam name="TSeventh">Seventh queried list data type</typeparam>
+            <typeparam name="TEighth">Eighth queried list data type</typeparam>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.ReturnValue">
             <summary>
@@ -84,6 +108,16 @@
             Initialize to default values
             </summary>
         </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5">
+            <summary>
+            Use when execute query with five queries from DB.
+            </summary>
+            <typeparam name="TFirst">First queried list data type</typeparam>
+            <typeparam name="TSecond">Second queried list data type</typeparam>
+            <typeparam name="TThird">Third queried list data type</typeparam>
+            <typeparam name="TFourth">Forth queried list data type</typeparam>
+            <typeparam name="TFifth">Fifth queried list data type</typeparam>
+        </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.ReturnValue">
             <summary>
             Status defined by the SP
@@ -124,6 +158,15 @@
             Initialize to default values
             </summary>
         </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4">
+            <summary>
+            Use when execute query with four queries from DB.
+            </summary>
+            <typeparam name="TFirst">First queried list data type</typeparam>
+            <typeparam name="TSecond">Second queried list data type</typeparam>
+            <typeparam name="TThird">Third queried list data type</typeparam>
+            <typeparam name="TFourth">Forth queried list data type</typeparam>
+        </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4.ReturnValue">
             <summary>
             Status defined by the SP
@@ -158,6 +201,20 @@
             <summary>
             Initialize to default values
             </summary>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9">
+            <summary>
+            Use when execute query with nine queries from DB.
+            </summary>
+            <typeparam name="TFirst">First queried list data type</typeparam>
+            <typeparam name="TSecond">Second queried list data type</typeparam>
+            <typeparam name="TThird">Third queried list data type</typeparam>
+            <typeparam name="TFourth">Forth queried list data type</typeparam>
+            <typeparam name="TFifth">Fifth queried list data type</typeparam>
+            <typeparam name="TSixth">Sixth queried list data type</typeparam>
+            <typeparam name="TSeventh">Seventh queried list data type</typeparam>
+            <typeparam name="TEighth">Eighth queried list data type</typeparam>
+            <typeparam name="TNineth">Nineth queried list data type</typeparam>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.ReturnValue">
             <summary>
@@ -219,6 +276,18 @@
             Initialize to default values
             </summary>
         </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7">
+            <summary>
+            Use when execute query with seven queries from DB.
+            </summary>
+            <typeparam name="TFirst">First queried list data type</typeparam>
+            <typeparam name="TSecond">Second queried list data type</typeparam>
+            <typeparam name="TThird">Third queried list data type</typeparam>
+            <typeparam name="TFourth">Forth queried list data type</typeparam>
+            <typeparam name="TFifth">Fifth queried list data type</typeparam>
+            <typeparam name="TSixth">Sixth queried list data type</typeparam>
+            <typeparam name="TSeventh">Seventh queried list data type</typeparam>
+        </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.ReturnValue">
             <summary>
             Status defined by the SP
@@ -269,6 +338,17 @@
             Initialize to default values
             </summary>
         </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6">
+            <summary>
+            Use when execute query with six queries from DB.
+            </summary>
+            <typeparam name="TFirst">First queried list data type</typeparam>
+            <typeparam name="TSecond">Second queried list data type</typeparam>
+            <typeparam name="TThird">Third queried list data type</typeparam>
+            <typeparam name="TFourth">Forth queried list data type</typeparam>
+            <typeparam name="TFifth">Fifth queried list data type</typeparam>
+            <typeparam name="TSixth">Sixth queried list data type</typeparam>
+        </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.ReturnValue">
             <summary>
             Status defined by the SP
@@ -313,6 +393,21 @@
             <summary>
             Initialize to default values
             </summary>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10">
+            <summary>
+            Use when execute query with ten queries from DB.
+            </summary>
+            <typeparam name="TFirst">First queried list data type</typeparam>
+            <typeparam name="TSecond">Second queried list data type</typeparam>
+            <typeparam name="TThird">Third queried list data type</typeparam>
+            <typeparam name="TFourth">Forth queried list data type</typeparam>
+            <typeparam name="TFifth">Fifth queried list data type</typeparam>
+            <typeparam name="TSixth">Sixth queried list data type</typeparam>
+            <typeparam name="TSeventh">Seventh queried list data type</typeparam>
+            <typeparam name="TEighth">Eighth queried list data type</typeparam>
+            <typeparam name="TNineth">Nineth queried list data type</typeparam>
+            <typeparam name="TTenth">Tenth queried list data type</typeparam>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.ReturnValue">
             <summary>
@@ -379,6 +474,14 @@
             Initialize to default values
             </summary>
         </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`3">
+            <summary>
+            Use when execute query with three queries from DB.
+            </summary>
+            <typeparam name="TFirst">First queried list data type</typeparam>
+            <typeparam name="TSecond">Second queried list data type</typeparam>
+            <typeparam name="TThird">Third queried list data type</typeparam>
+        </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`3.ReturnValue">
             <summary>
             Status defined by the SP
@@ -409,6 +512,13 @@
             Initialize to default values
             </summary>
         </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`2">
+            <summary>
+            Use when execute query with two queries from DB.
+            </summary>
+            <typeparam name="TFirst">First queried list data type</typeparam>
+            <typeparam name="TSecond">Second queried list data type</typeparam>
+        </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`2.ReturnValue">
             <summary>
             Status defined by the SP
@@ -434,6 +544,12 @@
             Initialize to default values
             </summary>
         </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleReturnItem">
+            <summary>
+            Use when execute query with multiple(any number of) queries from DB.
+            Returned IEnumerable of dynamic type. 
+            </summary>
+        </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleReturnItem.ReturnValue">
             <summary>
             Status defined by the SP
@@ -453,6 +569,13 @@
             <summary>
             Initialize to default values
             </summary>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryMultipleSingleAndListReturnItem`2">
+            <summary>
+            Use when execute query with single query with single row of data and query a list from DB
+            </summary>
+            <typeparam name="TFirst">First queried row data type</typeparam>
+            <typeparam name="TSecond">Second List queries data type</typeparam>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleSingleAndListReturnItem`2.ReturnValue">
             <summary>
@@ -479,6 +602,12 @@
             Initialize to default values
             </summary>
         </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryReturnItem`1">
+            <summary>
+            Use when execute query with single query from DB
+            </summary>
+            <typeparam name="T">Queried list object data type</typeparam>
+        </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryReturnItem`1.ReturnValue">
             <summary>
             Status defined by the SP
@@ -501,7 +630,7 @@
         </member>
         <member name="T:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1">
             <summary>
-            Wraps the returned items for general query which returns single data row
+            Use when execute query with single query with single row of data from DB
             </summary>
             <typeparam name="T">Queried object type</typeparam>
         </member>

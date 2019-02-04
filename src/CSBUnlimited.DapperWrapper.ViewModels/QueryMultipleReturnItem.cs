@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace CSBUnlimited.DapperWrapper
 {
+    /// <summary>
+    /// Use when execute query with multiple(any number of) queries from DB.
+    /// Returned IEnumerable of dynamic type. 
+    /// </summary>
     public class QueryMultipleReturnItem : IReturnItem
     {
         /// <summary>

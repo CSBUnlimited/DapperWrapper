@@ -3,6 +3,16 @@ using CSBUnlimited.DapperWrapper.Core;
 
 namespace CSBUnlimited.DapperWrapper
 {
+    /// <summary>
+    /// Use when execute query with seven queries from DB.
+    /// </summary>
+    /// <typeparam name="TFirst">First queried list data type</typeparam>
+    /// <typeparam name="TSecond">Second queried list data type</typeparam>
+    /// <typeparam name="TThird">Third queried list data type</typeparam>
+    /// <typeparam name="TFourth">Forth queried list data type</typeparam>
+    /// <typeparam name="TFifth">Fifth queried list data type</typeparam>
+    /// <typeparam name="TSixth">Sixth queried list data type</typeparam>
+    /// <typeparam name="TSeventh">Seventh queried list data type</typeparam>
     public class QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh> : IReturnItem
     {
         /// <summary>

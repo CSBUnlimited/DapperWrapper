@@ -2,6 +2,9 @@
 
 namespace CSBUnlimited.DapperWrapper
 {
+    /// <summary>
+    /// Use when execute query with out quering from DB
+    /// </summary>
     public class NonQueryReturnItem : IReturnItem
     {
         /// <summary>

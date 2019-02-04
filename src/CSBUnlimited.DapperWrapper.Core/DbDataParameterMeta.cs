@@ -23,17 +23,27 @@ namespace CSBUnlimited.DapperWrapper
         /// <summary>
         /// Sets or gets the parameter db type
         /// </summary>
-        public DbType DbType { get; set; } = DbType.Object;
+        public DbType DbType { get; set; }
 
         /// <summary>
         /// Sets or gets the parameter db type
         /// </summary>
-        public ParameterDirection Direction { get; set; } = ParameterDirection.Input;
+        public ParameterDirection Direction { get; set; }
 
         /// <summary>
         /// Sets or gets the parameter size
         /// </summary>
         public int Size { get; set; }
+
+        /// <summary>
+        /// DbDataParameterMeta - Constructor
+        /// </summary>
+        public DbDataParameterMeta()
+        {
+            Visible = true;
+            DbType = DbType.Object;
+            Direction = ParameterDirection.Input;
+        }
         #endregion
     }
 }

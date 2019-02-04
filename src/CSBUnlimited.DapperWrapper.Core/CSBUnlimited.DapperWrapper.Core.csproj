@@ -9,4 +9,8 @@
     <DocumentationFile>CSBUnlimited.DapperWrapper.Core.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>CSBUnlimited.DapperWrapper.Core.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

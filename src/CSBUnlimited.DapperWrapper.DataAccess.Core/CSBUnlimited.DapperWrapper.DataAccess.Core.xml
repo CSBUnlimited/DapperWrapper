@@ -4,6 +4,11 @@
         <name>CSBUnlimited.DapperWrapper.DataAccess.Core</name>
     </assembly>
     <members>
+        <member name="T:CSBUnlimited.DapperWrapper.IDbConnector">
+            <summary>
+            DbConnector interface
+            </summary>
+        </member>
         <member name="M:CSBUnlimited.DapperWrapper.IDbConnector.BeginTransaction">
             <summary>
             Begin a database transaction

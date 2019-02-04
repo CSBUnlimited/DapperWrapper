@@ -4,6 +4,11 @@
         <name>CSBUnlimited.DapperWrapper.DataAccess.Base</name>
     </assembly>
     <members>
+        <member name="T:CSBUnlimited.DapperWrapper.Base.BaseDbConnector">
+            <summary>
+            Base implementation of IDbConnector
+            </summary>
+        </member>
         <member name="F:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ReturnValueParameterName">
             <summary>
             Constant for ReturnValue parameter name

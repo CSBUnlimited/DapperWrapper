@@ -4,6 +4,9 @@ using System.Data;
 
 namespace CSBUnlimited.DapperWrapper.Base
 {
+    /// <summary>
+    /// Base implementation of IDbConnector
+    /// </summary>
     public abstract partial class BaseDbConnector : IDbConnector
     {
         /// <summary>

@@ -9,6 +9,10 @@
     <DocumentationFile>CSBUnlimited.DapperWrapper.DataAccess.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>CSBUnlimited.DapperWrapper.DataAccess.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\CSBUnlimited.DapperWrapper.DataAccess.Base\CSBUnlimited.DapperWrapper.DataAccess.Base.csproj" />
   </ItemGroup>

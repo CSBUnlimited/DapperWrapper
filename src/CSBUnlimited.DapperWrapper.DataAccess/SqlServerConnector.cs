@@ -5,6 +5,9 @@ using CSBUnlimited.DapperWrapper.Base;
 
 namespace CSBUnlimited.DapperWrapper
 {
+    /// <summary>
+    /// Sql server specialiezed conecctor
+    /// </summary>
     public sealed class SqlServerConnector : BaseDbConnector, IDbConnector
     {
         /// <summary>

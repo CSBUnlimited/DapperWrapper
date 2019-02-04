@@ -9,6 +9,10 @@
     <DocumentationFile>CSBUnlimited.DapperWrapper.ViewModels.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>CSBUnlimited.DapperWrapper.ViewModels.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\CSBUnlimited.DapperWrapper.Core\CSBUnlimited.DapperWrapper.Core.csproj" />
   </ItemGroup>

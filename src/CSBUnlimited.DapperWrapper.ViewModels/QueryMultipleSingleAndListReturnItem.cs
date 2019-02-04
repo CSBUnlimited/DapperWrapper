@@ -3,6 +3,11 @@ using CSBUnlimited.DapperWrapper.Core;
 
 namespace CSBUnlimited.DapperWrapper
 {
+    /// <summary>
+    /// Use when execute query with single query with single row of data and query a list from DB
+    /// </summary>
+    /// <typeparam name="TFirst">First queried row data type</typeparam>
+    /// <typeparam name="TSecond">Second List queries data type</typeparam>
     public class QueryMultipleSingleAndListReturnItem<TFirst, TSecond> : IReturnItem
     {
         /// <summary>

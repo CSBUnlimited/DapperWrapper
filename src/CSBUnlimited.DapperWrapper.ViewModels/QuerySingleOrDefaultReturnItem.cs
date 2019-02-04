@@ -3,7 +3,7 @@
 namespace CSBUnlimited.DapperWrapper
 {
     /// <summary>
-    /// Wraps the returned items for general query which returns single data row
+    /// Use when execute query with single query with single row of data from DB
     /// </summary>
     /// <typeparam name="T">Queried object type</typeparam>
     public class QuerySingleOrDefaultReturnItem<T> : IReturnItem

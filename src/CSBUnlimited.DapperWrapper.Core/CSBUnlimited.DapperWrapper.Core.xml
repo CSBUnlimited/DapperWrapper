@@ -4,6 +4,11 @@
         <name>CSBUnlimited.DapperWrapper.Core</name>
     </assembly>
     <members>
+        <member name="T:CSBUnlimited.DapperWrapper.DbDataParameter">
+            <summary>
+            DB Data Parameter
+            </summary>
+        </member>
         <member name="P:CSBUnlimited.DapperWrapper.DbDataParameter.DbType">
             <summary>
             DbType of the parameter
@@ -56,7 +61,7 @@
         </member>
         <member name="M:CSBUnlimited.DapperWrapper.DbDataParameter.#ctor">
             <summary>
-            Empty constructor
+            Default constructor
             </summary>
         </member>
         <member name="M:CSBUnlimited.DapperWrapper.DbDataParameter.#ctor(System.String,System.Object,System.Data.DbType,System.Data.ParameterDirection)">
@@ -65,8 +70,13 @@
             </summary>
             <param name="parameterName">Name of the parameter. ex: @Name</param>
             <param name="value">Value of the parameter</param>
-            <param name="dbType">Default: DbType.String, Database type of the parameter</param>
+            <param name="dbType">Default: DbType.Object, Database type of the parameter</param>
             <param name="direction">Default: ParameterDirection.Input, Direction of the parameter. ex: Input/Output</param>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.DbDataParameterBuilder">
+            <summary>
+            DB Data Parameter Builder
+            </summary>
         </member>
         <member name="M:CSBUnlimited.DapperWrapper.DbDataParameterBuilder.GetParameters(System.Object)">
             <summary>
@@ -105,6 +115,122 @@
             Sets or gets the parameter size
             </summary>
         </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbDataParameterMeta.#ctor">
+            <summary>
+            DbDataParameterMeta - Constructor
+            </summary>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.DbParameterList">
+            <summary>
+            Collection of Db Parameters
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.#ctor(System.Object)">
+            <summary>
+            Constructor - Can use for get the parameter list from an object
+            </summary>
+            <param name="model">Object that need to get parameter list</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbParameterList.Item(System.String)">
+            <summary>
+            Get or Set using parameter name
+            </summary>
+            <param name="parameterName">Parameter name</param>
+            <returns>DbDataParameter</returns>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbParameterList.Item(System.Int32)">
+            <summary>
+            Get or Set using the index
+            </summary>
+            <param name="index">Index</param>
+            <returns>DbDataParameter</returns>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbParameterList.Count">
+            <summary>
+            To get the parameter count
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.DbParameterList.IsReadOnly">
+            <summary>
+            Get parameter is readonly
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.Add(CSBUnlimited.DapperWrapper.DbDataParameter)">
+            <summary>
+            Add a new DbDataParameter
+            </summary>
+            <param name="item">New DbDataParameter</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.Clear">
+            <summary>
+            Clear all parameters
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.Contains(CSBUnlimited.DapperWrapper.DbDataParameter)">
+            <summary>
+            Check DbDataParameter is already exists
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.CopyTo(CSBUnlimited.DapperWrapper.DbDataParameter[],System.Int32)">
+            <summary>
+            Copy to a DbDataParameter array
+            </summary>
+            <param name="array">Array that need to copy</param>
+            <param name="arrayIndex">Index need to start</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.GetEnumerator">
+            <summary>
+            Get Enumerator from parameter collection
+            </summary>
+            <returns>IEnumerator of DbDataParameters</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.IndexOf(CSBUnlimited.DapperWrapper.DbDataParameter)">
+            <summary>
+            Find the index of a DbDataParameter
+            </summary>
+            <param name="item">DbDataParameter</param>
+            <returns>Index</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.Insert(System.Int32,CSBUnlimited.DapperWrapper.DbDataParameter)">
+            <summary>
+            Insert a DbDataParameter to a index
+            </summary>
+            <param name="index">Index</param>
+            <param name="item">DbDataParameter</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.Remove(CSBUnlimited.DapperWrapper.DbDataParameter)">
+            <summary>
+            Removes the first occurrence of a specific object using DbDataParameter
+            </summary>
+            <param name="item">DbDataParameter</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.Remove(System.String)">
+            <summary>
+            Removes the first occurrence of a specific object using parameterName
+            </summary>
+            <param name="parameterName">Parameter Name</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.RemoveAt(System.Int32)">
+            <summary>
+            Remove specific object using index
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.DbParameterList.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Get Enumerator of parameter collection
+            </summary>
+            <returns>Enumerator</returns>
+        </member>
         <member name="T:CSBUnlimited.DapperWrapper.IDbDataParameterBuilder">
             <summary>
             Builds db parameters using the model
@@ -116,6 +242,25 @@
             </summary>
             <param name="model">Model to be parsed</param>
             <returns>List of parameters built from the model properties</returns>
+        </member>
+        <member name="T:CSBUnlimited.DapperWrapper.IDbParameterList">
+            <summary>
+            DbParameterList interface
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.IDbParameterList.Item(System.String)">
+            <summary>
+            Get or Set using parameter name
+            </summary>
+            <param name="parameterName">Parameter name</param>
+            <returns>DbDataParameter</returns>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.IDbParameterList.Remove(System.String)">
+            <summary>
+            Removes the first occurrence of a specific object using parameterName
+            </summary>
+            <param name="parameterName">Parameter Name</param>
+            <returns>Boolean</returns>
         </member>
     </members>
 </doc>

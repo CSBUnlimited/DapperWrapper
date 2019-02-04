@@ -9,6 +9,10 @@
     <DocumentationFile>CSBUnlimited.DapperWrapper.DataAccess.Base.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>CSBUnlimited.DapperWrapper.DataAccess.Base.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
   </ItemGroup>

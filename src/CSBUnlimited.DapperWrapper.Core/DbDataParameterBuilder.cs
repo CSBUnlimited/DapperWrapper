@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace CSBUnlimited.DapperWrapper
 {
+    /// <summary>
+    /// DB Data Parameter Builder
+    /// </summary>
     public class DbDataParameterBuilder : IDbDataParameterBuilder
     {
         /// <summary>
@@ -25,19 +28,15 @@ namespace CSBUnlimited.DapperWrapper
                     DbDataParameter parameter = new DbDataParameter()
                     {
                         Value = property.GetValue(model),
-                        ParameterName = (attribute == null || string.IsNullOrEmpty(attribute.ParameterName))
-                            ? $"@{property.Name}"
-                            : $"@{attribute.ParameterName}"
+                        ParameterName = (attribute == null || string.IsNullOrEmpty(attribute.ParameterName)) ? $"@{property.Name}" : $"@{attribute.ParameterName}"
                     };
 
-                    if (attribute != null && attribute.DbType != DbType.Object)
+                    if (attribute != null)
+                    {
                         parameter.DbType = attribute.DbType;
-
-                    if (attribute != null && attribute.Direction != ParameterDirection.Input)
                         parameter.Direction = attribute.Direction;
-
-                    if (attribute != null && attribute.Size != 0)
                         parameter.Size = attribute.Size;
+                    }
 
                     parametersCollection.Add(parameter);
                 }

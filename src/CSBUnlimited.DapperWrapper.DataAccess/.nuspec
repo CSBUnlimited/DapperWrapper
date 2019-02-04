@@ -2,25 +2,30 @@
 <package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>CSBUnlimited.DapperWrapper</id>
-    <version>0.10.2-beta</version>
+    <version>0.11.0-beta</version>
     <title>CSBUnlimited DapperWrapper</title>
     <authors>Chathuranga Basnayake</authors>
     <owners>CSBUnlimited</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A high performance Micro-ORM that wraps Dapper ORM with extended functionality and extendability.
-This wrapper only supports for StoredProcedures and SqlServer database at the moment. Will extend the support to other Databases in the future.
+This wrapper only supports for SqlServer database at the moment. Will extend the support to other Databases in the future.
     </description>
-    <releaseNotes>Minor improvements.
-      - Added Comments in nuget packages.
+    <projectUrl>https://github.com/CSBUnlimited/DapperWrapper</projectUrl>
+    <license type="expression">MIT</license>
+    <releaseNotes>Initial release tested release.
+  - Support SQL Server Databases.
+  - Support Stored procedures.
+  - Support SQL Text queries.
     </releaseNotes>
     <copyright>Copyright 2019 CSBUnlimited</copyright>
     <tags>CSBUnlimited, CSB, Dapper, DapperWrapper, CSBUnlimited DapperWrapper, CSB DapperWrapper</tags>
     <dependencies>
       <dependency id="Dapper" version="1.50.5" />
     </dependencies>
-    <summary></summary>
+    <summary>A high performance Micro-ORM that wraps Dapper ORM with extended functionality and extendability.</summary>
   </metadata>
   <files>
-    <!--<file src="" target="" />-->
+    <!--<documentation src="../../README.md" />-->
+    <!--<file src="../../README.md" />-->
   </files>
 </package>

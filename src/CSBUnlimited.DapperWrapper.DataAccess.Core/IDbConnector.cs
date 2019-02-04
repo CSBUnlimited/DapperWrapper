@@ -2,6 +2,9 @@
 
 namespace CSBUnlimited.DapperWrapper
 {
+    /// <summary>
+    /// DbConnector interface
+    /// </summary>
     public partial interface IDbConnector : IDisposable
     {
         /// <summary>

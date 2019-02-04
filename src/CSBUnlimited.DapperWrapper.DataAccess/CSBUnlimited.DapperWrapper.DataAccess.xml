@@ -4,6 +4,11 @@
         <name>CSBUnlimited.DapperWrapper.DataAccess</name>
     </assembly>
     <members>
+        <member name="T:CSBUnlimited.DapperWrapper.SqlServerConnector">
+            <summary>
+            Sql server specialiezed conecctor
+            </summary>
+        </member>
         <member name="M:CSBUnlimited.DapperWrapper.SqlServerConnector.#ctor(System.String)">
             <summary>
             Sql Server Connector - Constructor

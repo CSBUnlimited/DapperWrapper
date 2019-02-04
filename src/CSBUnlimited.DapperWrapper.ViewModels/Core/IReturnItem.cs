@@ -1,5 +1,9 @@
 ﻿namespace CSBUnlimited.DapperWrapper.Core
 {
+    /// <summary>
+    /// Basic items required for return item.
+    /// Only for internal usage not for external usage
+    /// </summary>
     internal interface IReturnItem
     {
         /// <summary>

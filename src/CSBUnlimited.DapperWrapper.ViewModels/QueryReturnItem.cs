@@ -3,6 +3,10 @@ using CSBUnlimited.DapperWrapper.Core;
 
 namespace CSBUnlimited.DapperWrapper
 {
+    /// <summary>
+    /// Use when execute query with single query from DB
+    /// </summary>
+    /// <typeparam name="T">Queried list object data type</typeparam>
     public class QueryReturnItem<T> : IReturnItem
     {
         /// <summary>
