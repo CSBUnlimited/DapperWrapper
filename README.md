@@ -15,8 +15,8 @@ Packages and Build
 
 | Branch | Build Status | Last Commit |
 | -------- | ----------- | ----------- |
-| [master](https://github.com/CSBUnlimited/DapperWrapper/tree/master) | [![Build Status](https://csbunlimited.visualstudio.com/DapperWrapper/_apis/build/status/DapperWrapper-CI?branchName=master)](https://csbunlimited.visualstudio.com/DapperWrapper/_build?definitionId=3) | [![Last Commit](https://img.shields.io/github/last-commit/csbunlimited/dapperwrapper/master.svg?style=flat)](https://github.com/CSBUnlimited/DapperWrapper/commits/master) | 
-| [dev](https://github.com/CSBUnlimited/DapperWrapper/tree/dev) | [![Build Status](https://csbunlimited.visualstudio.com/DapperWrapper/_apis/build/status/DapperWrapper-CI-Dev?branchName=dev)](https://csbunlimited.visualstudio.com/DapperWrapper/_build?definitionId=4) | [![Last Commit](https://img.shields.io/github/last-commit/csbunlimited/dapperwrapper/dev.svg?style=flat)](https://github.com/CSBUnlimited/DapperWrapper/commits/dev) | 
+| [master](https://github.com/CSBUnlimited/DapperWrapper/tree/master) | [![Build Status](https://csbunlimited.visualstudio.com/CSBUnlimited-DapperWrapper/_apis/build/status/CSBUnlimited-DapperWrapper-CI?branchName=master)](https://csbunlimited.visualstudio.com/CSBUnlimited-DapperWrapper/_build?definitionId=5) | [![Last Commit](https://img.shields.io/github/last-commit/csbunlimited/dapperwrapper/master.svg?style=flat)](https://github.com/CSBUnlimited/DapperWrapper/commits/master) | 
+| [dev](https://github.com/CSBUnlimited/DapperWrapper/tree/dev) | [![Build Status](https://csbunlimited.visualstudio.com/CSBUnlimited-DapperWrapper/_apis/build/status/CSBUnlimited-DapperWrapper-CI?branchName=dev)](https://csbunlimited.visualstudio.com/CSBUnlimited-DapperWrapper/_build?definitionId=5) | [![Last Commit](https://img.shields.io/github/last-commit/csbunlimited/dapperwrapper/dev.svg?style=flat)](https://github.com/CSBUnlimited/DapperWrapper/commits/dev) | 
 
 | Package | Stable | Pre-release | Downloads |
 | --------- | --------- | ------------- | ------------- |
