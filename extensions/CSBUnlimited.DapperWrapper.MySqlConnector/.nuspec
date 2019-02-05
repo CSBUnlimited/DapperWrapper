@@ -1,0 +1,34 @@
+﻿<?xml version="1.0"?>
+<package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>CSBUnlimited.DapperWrapper.MySqlConnector</id>
+    <version>1.0.0-beta</version>
+    <title>CSBUnlimited DapperWrapper MySqlConnector</title>
+    <authors>Chathuranga Basnayake</authors>
+    <owners>CSBUnlimited</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A high performance Micro-ORM that wraps Dapper ORM with extended functionality and extendability. This package is support for MySql Databases.
+
+Included features.
+    - Support MySql Databases.
+    - Support Stored procedures.
+    - Support SQL Text queries.
+  </description>
+    <projectUrl>https://github.com/CSBUnlimited/DapperWrapper</projectUrl>
+    <license type="expression">MIT</license>
+    <releaseNotes>
+      Initial release for MySqlConnector.
+    </releaseNotes>
+    <copyright>Copyright 2019 CSBUnlimited</copyright>
+    <tags>CSBUnlimited, CSB, Dapper, DapperWrapper, CSBUnlimited DapperWrapper, CSB DapperWrapper, MySqlConnector, DapperWrapper MySqlConnector</tags>
+    <dependencies>
+      <dependency id="CSBUnlimited.DapperWrapper" version="0.13.0-beta" />
+      <dependency id="MySql.Data" version="8.0.15" />
+    </dependencies>
+    <summary>A high performance Micro-ORM that wraps Dapper ORM with extended functionality and extendability.</summary>
+  </metadata>
+  <files>
+    <!--<documentation src="../../README.md" />-->
+    <!--<file src="../../README.md" />-->
+  </files>
+</package>

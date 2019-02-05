@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>CSBUnlimited.DapperWrapper.MySqlConnector.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CSBUnlimited.DapperWrapper" Version="0.13.0-beta" />
+    <PackageReference Include="MySql.Data" Version="8.0.15" />
+  </ItemGroup>
+
+</Project>
