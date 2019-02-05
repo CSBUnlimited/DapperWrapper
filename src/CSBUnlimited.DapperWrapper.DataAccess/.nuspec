@@ -9,10 +9,15 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A high performance Micro-ORM that wraps Dapper ORM with extended functionality and extendability.
 This wrapper only supports for SqlServer database at the moment. Will extend the support to other Databases in the future.
-    </description>
+
+Included features.
+    - Support SQL Server Databases.
+    - Support Stored procedures.
+    - Support SQL Text queries.
+  </description>
     <projectUrl>https://github.com/CSBUnlimited/DapperWrapper</projectUrl>
     <license type="expression">MIT</license>
-    <releaseNotes>Included features.
+    <releaseNotes>Release Notes.
       - Removed MySql Connection. Will be added as extention package.
     </releaseNotes>
     <copyright>Copyright 2019 CSBUnlimited</copyright>
