@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSBUnlimited.DapperWrapper.MySqlConnector</name>
+    </assembly>
+    <members>
+        <member name="T:CSBUnlimited.DapperWrapper.MySqlConnector.MySqlConnector">
+            <summary>
+            Sql server specialiezed conecctor
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.MySqlConnector.MySqlConnector.#ctor(System.String)">
+            <summary>
+            MySql Connector - Constructor
+            </summary>
+            <param name="connectionString">Connection string for database</param>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.MySqlConnector.MySqlConnector.OpenConnection">
+            <summary>
+            Open connection for MySql database
+            </summary>
+        </member>
+    </members>
+</doc>
