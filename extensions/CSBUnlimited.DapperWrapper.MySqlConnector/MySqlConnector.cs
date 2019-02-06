@@ -3,7 +3,7 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using CSBUnlimited.DapperWrapper.Base;
 
-namespace CSBUnlimited.DapperWrapper.MySqlConnector
+namespace CSBUnlimited.DapperWrapper
 {
     /// <summary>
     /// Sql server specialiezed conecctor
