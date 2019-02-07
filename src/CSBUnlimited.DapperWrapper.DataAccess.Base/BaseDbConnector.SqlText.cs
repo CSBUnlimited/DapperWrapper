@@ -37,7 +37,7 @@ namespace CSBUnlimited.DapperWrapper.Base
 
             OpenConnectionForSingleTransaction();
 
-            ExecuteNonQuery(sqlQueryText, CommandType.Text, parameters);
+            returnItem.EffectedRowsCount = ExecuteNonQuery(sqlQueryText, CommandType.Text, parameters);
 
             CloseConnectionForSingleTransaction();
 

@@ -13,6 +13,11 @@ namespace CSBUnlimited.DapperWrapper
         public int ReturnValue { get; set; }
 
         /// <summary>
+        /// The number of rows affected
+        /// </summary>
+        public int EffectedRowsCount { get; set; }
+
+        /// <summary>
         /// Returned parameters list
         /// </summary>
         public IDbParameterList ReturnParametersCollection { get; set; }
