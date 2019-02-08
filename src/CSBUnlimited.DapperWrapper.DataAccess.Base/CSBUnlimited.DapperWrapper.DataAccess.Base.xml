@@ -811,6 +811,14 @@
             <param name="parametersCollection">Input parameter list</param>
             <returns>QueryMultipleListsReturnItem</returns>
         </member>
+        <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteScalarSqlTextAsync``1(System.String,CSBUnlimited.DapperWrapper.IDbParameterList)">
+            <summary>
+            Executes scalar sql text - Async.
+            </summary>
+            <param name="sqlQueryText">SQL Query Text</param>
+            <param name="parametersCollection">Input parameter list</param>
+            <returns>NonQueryReturnItem</returns>
+        </member>
         <member name="M:CSBUnlimited.DapperWrapper.Base.BaseDbConnector.ExecuteNonQuerySqlTextAsync(System.String,CSBUnlimited.DapperWrapper.IDbParameterList)">
             <summary>
             Executes non-query sql text - Async.

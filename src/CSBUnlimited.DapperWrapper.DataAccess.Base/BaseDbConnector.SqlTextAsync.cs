@@ -6,6 +6,15 @@ namespace CSBUnlimited.DapperWrapper.Base
 	public partial class BaseDbConnector : IDbConnector
 	{
 		/// <summary>
+		/// Executes scalar sql text - Async.
+		/// </summary>
+		/// <param name="sqlQueryText">SQL Query Text</param>
+		/// <param name="parametersCollection">Input parameter list</param>
+		/// <returns>NonQueryReturnItem</returns>
+		public virtual async Task<QueryScalarReturnItem<T>> ExecuteScalarSqlTextAsync<T>(string sqlQueryText, IDbParameterList parametersCollection) =>
+			await ExecuteScalarByCommandTypeAsync<T>(sqlQueryText, CommandType.Text, parametersCollection, false);
+
+		/// <summary>
 		/// Executes non-query sql text - Async.
 		/// </summary>
 		/// <param name="sqlQueryText">SQL Query Text</param>
