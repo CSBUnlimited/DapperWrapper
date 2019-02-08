@@ -21,6 +21,19 @@ namespace CSBUnlimited.DapperWrapper.Base
         }
 
         /// <summary>
+        /// Execute and get a single value - Async
+        /// </summary>
+        /// <typeparam name="T">Return Type</typeparam>
+        /// <param name="sqlQuery">SQL Query</param>
+        /// <param name="commandType">SQL Query command type</param>
+        /// <param name="parameters">Parameters</param>
+        /// <returns>Value type</returns>
+        protected virtual async Task<T> ExecuteScalarAsync<T>(string sqlQuery, CommandType commandType, DynamicParameters parameters)
+        {
+            return await Connection.ExecuteScalarAsync<T>(sqlQuery, parameters, transaction: (Transaction?.Connection == null) ? null : Transaction, commandType: commandType);
+        }
+
+        /// <summary>
         /// Execute Query - Async
         /// </summary>
         /// <typeparam name="T">Return Type</typeparam>

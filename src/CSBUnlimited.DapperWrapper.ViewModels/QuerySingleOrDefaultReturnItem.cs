@@ -9,7 +9,7 @@ namespace CSBUnlimited.DapperWrapper
     public class QuerySingleOrDefaultReturnItem<T> : IReturnItem
     {
         /// <summary>
-        /// Status defined by the SP
+        /// Return value that return from stored procedure
         /// </summary>
         public int ReturnValue { get; set; }
 
@@ -19,7 +19,7 @@ namespace CSBUnlimited.DapperWrapper
         public IDbParameterList ReturnParametersCollection { get; set; }
 
         /// <summary>
-        /// Data item which returns from teh SP. 
+        /// Data item which returns from the SP. 
         /// </summary>
         public T DataItem { get; set; }
 

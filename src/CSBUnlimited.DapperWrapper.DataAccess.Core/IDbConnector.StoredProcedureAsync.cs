@@ -32,7 +32,7 @@ namespace CSBUnlimited.DapperWrapper
 		/// <param name="parametersCollection">Input/Output parameter list</param>
 		/// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
 		/// <returns>QuerySingleOrDefaultReturnItem</returns>
-		Task<QuerySingleOrDefaultReturnItem<T>> ExecuteQueryStoredProcedureSingleOrDefaultAsync<T>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+		Task<QuerySingleOrDefaultReturnItem<T>> ExecuteQuerySingleOrDefaultStoredProcedureAsync<T>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
 
 		/// <summary>
 		/// Asynchronously executes query stored procedures for multiple datasets.
@@ -52,7 +52,7 @@ namespace CSBUnlimited.DapperWrapper
 		/// <param name="parametersCollection">Input/Output parameter list</param>
 		/// <param name="isReturnValueExists">Indicates whether return value, needed to be included</param>
 		/// <returns>QueryMultipleListsReturnItem</returns>
-		Task<QueryMultipleSingleAndListReturnItem<TFirst, TSecond>> QueryMultipleSingleWithListStoredProcedureAsync<TFirst, TSecond>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
+		Task<QueryMultipleSingleAndListReturnItem<TFirst, TSecond>> ExecuteQueryMultipleSingleWithListStoredProcedureAsync<TFirst, TSecond>(string storedProcedureName, IDbParameterList parametersCollection, bool isReturnValueExists = true);
 
 		/// <summary>
 		/// Asynchronously executes query stored procedures for 2 lists.

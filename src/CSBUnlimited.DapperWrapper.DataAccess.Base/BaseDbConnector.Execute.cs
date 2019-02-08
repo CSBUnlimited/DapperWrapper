@@ -20,6 +20,19 @@ namespace CSBUnlimited.DapperWrapper.Base
         }
 
         /// <summary>
+        /// Execute and get a single value
+        /// </summary>
+        /// <typeparam name="T">Return Type</typeparam>
+        /// <param name="sqlQuery">SQL Query</param>
+        /// <param name="commandType">SQL Query command type</param>
+        /// <param name="parameters">Parameters</param>
+        /// <returns>Value type</returns>
+        protected virtual T ExecuteScalar<T>(string sqlQuery, CommandType commandType, DynamicParameters parameters)
+        {
+            return Connection.ExecuteScalar<T>(sqlQuery, parameters, transaction: (Transaction?.Connection == null) ? null : Transaction, commandType: commandType);
+        }
+
+        /// <summary>
         /// Execute Query
         /// </summary>
         /// <typeparam name="T">Return Type</typeparam>

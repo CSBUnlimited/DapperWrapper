@@ -7,7 +7,7 @@
     internal interface IReturnItem
     {
         /// <summary>
-        /// Status defined by the SP
+        /// SReturn value that return from stored procedure
         /// </summary>
         int ReturnValue { get; set; }
 

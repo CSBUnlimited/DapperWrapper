@@ -15,7 +15,7 @@ namespace CSBUnlimited.DapperWrapper
     public class QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TFourth, TFifth, TSixth> : IReturnItem
     {
         /// <summary>
-        /// Status defined by the SP
+        /// Return value that return from stored procedure
         /// </summary>
         public int ReturnValue { get; set; }
 
