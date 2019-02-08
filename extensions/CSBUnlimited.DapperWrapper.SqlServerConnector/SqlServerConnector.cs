@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using CSBUnlimited.DapperWrapper.Base;
 
 namespace CSBUnlimited.DapperWrapper
@@ -8,23 +8,23 @@ namespace CSBUnlimited.DapperWrapper
     /// <summary>
     /// Sql server specialized connector
     /// </summary>
-    public sealed class MySqlConnector : BaseDbConnector, IDbConnector
+    public sealed class SqlServerConnector : BaseDbConnector, IDbConnector
     {
         /// <summary>
-        /// MySql Connector - Constructor
+        /// Sql Server Connector - Constructor
         /// </summary>
         /// <param name="connectionString">Connection string for database</param>
-        public MySqlConnector(string connectionString) : base(connectionString)
+        public SqlServerConnector(string connectionString) : base(connectionString)
         { }
 
         /// <summary>
-        /// Open connection for MySql database
+        /// Open connection for Sql Server database
         /// </summary>
         protected override void OpenConnection()
         {
             if (Connection == null || String.IsNullOrEmpty(Connection.ConnectionString))
             {
-                Connection = new MySqlConnection(ConnectionString);
+                Connection = new SqlConnection(ConnectionString);
             }
 
             if (Connection.State != ConnectionState.Open)
