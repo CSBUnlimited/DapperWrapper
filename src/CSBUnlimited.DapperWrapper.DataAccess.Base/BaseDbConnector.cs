@@ -47,7 +47,7 @@ namespace CSBUnlimited.DapperWrapper.Base
         /// <summary>
         /// Whether Query is executing using this connection or ot
         /// </summary>
-        private bool _isSingleTransactionStarted;
+        private bool _isQueryExecutionStarted;
 
         private BaseDbConnector()
         { }
@@ -79,7 +79,8 @@ namespace CSBUnlimited.DapperWrapper.Base
         /// <summary>
         /// Get Output Parameter Value - This method is overridable.
         /// Cast DbTypes to Dotnet Types.
-        /// PS: DbType.Currency cast to doubale and DbType.Xml throws NotImplementedException.
+        /// PS: DbType.Currency cast to double if you need more accuracy please override this method.
+        /// And DbType.Xml throws NotImplementedException, XML need external cast.
         /// </summary>
         /// <param name="parameterName">Parameter Name</param>
         /// <param name="parameterDbType">Parameter DbType</param>
@@ -143,9 +144,9 @@ namespace CSBUnlimited.DapperWrapper.Base
                     return parameters.Get<DateTime?>(parameterName);
                 case DbType.DateTimeOffset:
                     return parameters.Get<DateTimeOffset?>(parameterName);
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(parameterDbType), parameterDbType, null);
             }
-
-            return null;
         }
 
         /// <summary>
@@ -169,30 +170,31 @@ namespace CSBUnlimited.DapperWrapper.Base
         /// <summary>
         /// To track and open connection for a query
         /// </summary>
-        protected virtual void OpenConnectionForSingleTransaction()
+        protected virtual void OpenConnectionForQueryExecution()
         {
-            if (_isSingleTransactionStarted)
+            if (_isQueryExecutionStarted)
                 return;
 
-            if (Transaction?.Connection == null)
-            {
-                OpenConnection();
-                _isSingleTransactionStarted = true;
-            }
+            if (Transaction?.Connection != null)
+                return;
+
+            OpenConnection();
+            _isQueryExecutionStarted = true;
         }
 
         /// <summary>
         /// To track and close connection with database
         /// </summary>
-        protected virtual void CloseConnectionForSingleTransaction()
+        protected virtual void CloseConnectionForQueryExecution()
         {
-            if (!_isSingleTransactionStarted)
+            if (!_isQueryExecutionStarted)
                 return;
 
             CloseConnection();
-            _isSingleTransactionStarted = false;
+            _isQueryExecutionStarted = false;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Begin a transaction
         /// </summary>
@@ -205,6 +207,7 @@ namespace CSBUnlimited.DapperWrapper.Base
             _isTransactionStarted = true;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Commit a transaction
         /// </summary>
@@ -217,6 +220,7 @@ namespace CSBUnlimited.DapperWrapper.Base
             _isTransactionStarted = false;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Rollback a transaction
         /// </summary>
@@ -230,6 +234,7 @@ namespace CSBUnlimited.DapperWrapper.Base
             Transaction.Dispose();
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Dispose connection data
         /// </summary>

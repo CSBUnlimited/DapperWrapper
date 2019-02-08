@@ -14,9 +14,23 @@ namespace CSBUnlimited.DapperWrapper.Base
         /// <param name="sqlQuery">SQL Query</param>
         /// <param name="commandType">SQL Query command type</param>
         /// <param name="parameters">Parameters</param>
-        protected virtual async Task ExecuteNonQueryAsync(string sqlQuery, CommandType commandType, DynamicParameters parameters)
+        /// <returns>The number of rows affected</returns>
+        protected virtual async Task<int> ExecuteNonQueryAsync(string sqlQuery, CommandType commandType, DynamicParameters parameters)
         {
-            await Connection.ExecuteAsync(sqlQuery, parameters, transaction: (Transaction?.Connection == null) ? null : Transaction, commandType: commandType);
+            return await Connection.ExecuteAsync(sqlQuery, parameters, transaction: (Transaction?.Connection == null) ? null : Transaction, commandType: commandType);
+        }
+
+        /// <summary>
+        /// Execute and get a single value - Async
+        /// </summary>
+        /// <typeparam name="T">Return Type</typeparam>
+        /// <param name="sqlQuery">SQL Query</param>
+        /// <param name="commandType">SQL Query command type</param>
+        /// <param name="parameters">Parameters</param>
+        /// <returns>Value type</returns>
+        protected virtual async Task<T> ExecuteScalarAsync<T>(string sqlQuery, CommandType commandType, DynamicParameters parameters)
+        {
+            return await Connection.ExecuteScalarAsync<T>(sqlQuery, parameters, transaction: (Transaction?.Connection == null) ? null : Transaction, commandType: commandType);
         }
 
         /// <summary>
@@ -34,7 +48,7 @@ namespace CSBUnlimited.DapperWrapper.Base
 
         /// <summary>
         /// Execute Single Or Default Query - Async.
-        /// Return excepton if returns mor than one.
+        /// Throw exception if returns mor than one.
         /// </summary>
         /// <typeparam name="T">Return Type</typeparam>
         /// <param name="sqlQuery">SQL Query</param>

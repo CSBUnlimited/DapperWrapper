@@ -13,9 +13,23 @@ namespace CSBUnlimited.DapperWrapper.Base
         /// <param name="sqlQuery">SQL Query</param>
         /// <param name="commandType">SQL Query command type</param>
         /// <param name="parameters">Parameters</param>
-        protected virtual void ExecuteNonQuery(string sqlQuery, CommandType commandType, DynamicParameters parameters)
+        /// <returns>The number of rows affected</returns>
+        protected virtual int ExecuteNonQuery(string sqlQuery, CommandType commandType, DynamicParameters parameters)
         {
-            Connection.Execute(sqlQuery, parameters, transaction: (Transaction?.Connection == null) ? null : Transaction, commandType: commandType);
+            return Connection.Execute(sqlQuery, parameters, transaction: (Transaction?.Connection == null) ? null : Transaction, commandType: commandType);
+        }
+
+        /// <summary>
+        /// Execute and get a single value
+        /// </summary>
+        /// <typeparam name="T">Return Type</typeparam>
+        /// <param name="sqlQuery">SQL Query</param>
+        /// <param name="commandType">SQL Query command type</param>
+        /// <param name="parameters">Parameters</param>
+        /// <returns>Value type</returns>
+        protected virtual T ExecuteScalar<T>(string sqlQuery, CommandType commandType, DynamicParameters parameters)
+        {
+            return Connection.ExecuteScalar<T>(sqlQuery, parameters, transaction: (Transaction?.Connection == null) ? null : Transaction, commandType: commandType);
         }
 
         /// <summary>
@@ -33,7 +47,7 @@ namespace CSBUnlimited.DapperWrapper.Base
 
         /// <summary>
         /// Execute Single Or Default Query.
-        /// Return excepton if returns mor than one.
+        /// Throw exception if returns more than one.
         /// </summary>
         /// <typeparam name="T">Return Type</typeparam>
         /// <param name="sqlQuery">SQL Query</param>

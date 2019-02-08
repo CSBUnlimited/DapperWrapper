@@ -2,23 +2,27 @@
 <package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>CSBUnlimited.DapperWrapper</id>
-    <version>0.13.0-beta</version>
+    <version>0.14.0-beta</version>
     <title>CSBUnlimited DapperWrapper</title>
     <authors>Chathuranga Basnayake</authors>
     <owners>CSBUnlimited</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A high performance Micro-ORM that wraps Dapper ORM with extended functionality and extendability.
-This wrapper only supports for SqlServer database at the moment. Will extend the support to other Databases in the future.
+    <description>
+      A high performance Micro-ORM that wraps Dapper ORM with extended functionality and extendability.
+      This wrapper only supports for SqlServer database at the moment. Will extend the support to other Databases in the future.
 
-Included features.
-    - Support SQL Server Databases.
-    - Support Stored procedures.
-    - Support SQL Text queries.
-  </description>
+      Included features.
+      - Support SQL Server Databases (as Extensions).
+      - Support My Sql Databases (as Extensions).
+      - Support Stored procedures.
+      - Support SQL Text queries.
+    </description>
     <projectUrl>https://github.com/CSBUnlimited/DapperWrapper</projectUrl>
     <license type="expression">MIT</license>
-    <releaseNotes>Release Notes.
-      - Removed MySql Connection. Will be added as extention package.
+    <releaseNotes>
+      Release Notes.
+      - Added Scalar Value support for sql text quires.
+      - Removed Sql Connection. Will be added as extension package.
     </releaseNotes>
     <copyright>Copyright 2019 CSBUnlimited</copyright>
     <tags>CSBUnlimited, CSB, Dapper, DapperWrapper, CSBUnlimited DapperWrapper, CSB DapperWrapper</tags>

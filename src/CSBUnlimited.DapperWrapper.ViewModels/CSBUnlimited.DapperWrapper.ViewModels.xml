@@ -12,7 +12,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.Core.IReturnItem.ReturnValue">
             <summary>
-            Status defined by the SP
+            SReturn value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.Core.IReturnItem.ReturnParametersCollection">
@@ -22,12 +22,18 @@
         </member>
         <member name="T:CSBUnlimited.DapperWrapper.NonQueryReturnItem">
             <summary>
-            Use when execute query with out quering from DB
+            Use when execute query with out querying from DB.
+            Best for Inserts, Updates and Deletes due to it returns the effected row count.
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.NonQueryReturnItem.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.NonQueryReturnItem.EffectedRowsCount">
+            <summary>
+            The number of rows affected
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.NonQueryReturnItem.ReturnParametersCollection">
@@ -55,7 +61,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`8.ReturnParametersCollection">
@@ -120,7 +126,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`5.ReturnParametersCollection">
@@ -169,7 +175,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`4.ReturnParametersCollection">
@@ -218,7 +224,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`9.ReturnParametersCollection">
@@ -290,7 +296,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`7.ReturnParametersCollection">
@@ -351,7 +357,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`6.ReturnParametersCollection">
@@ -411,7 +417,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`10.ReturnParametersCollection">
@@ -484,7 +490,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`3.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`3.ReturnParametersCollection">
@@ -521,7 +527,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`2.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleListsReturnItem`2.ReturnParametersCollection">
@@ -552,7 +558,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleReturnItem.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleReturnItem.ReturnParametersCollection">
@@ -579,7 +585,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleSingleAndListReturnItem`2.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryMultipleSingleAndListReturnItem`2.ReturnParametersCollection">
@@ -610,7 +616,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryReturnItem`1.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QueryReturnItem`1.ReturnParametersCollection">
@@ -628,6 +634,32 @@
             Initialize to default values
             </summary>
         </member>
+        <member name="T:CSBUnlimited.DapperWrapper.QueryScalarReturnItem`1">
+            <summary>
+            Use when execute query with single row that select first column of data from DB
+            </summary>
+            <typeparam name="T">Queried scalar value type</typeparam>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryScalarReturnItem`1.ReturnValue">
+            <summary>
+            Return value that return from stored procedure
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryScalarReturnItem`1.ReturnParametersCollection">
+            <summary>
+            Returned parameters list
+            </summary>
+        </member>
+        <member name="P:CSBUnlimited.DapperWrapper.QueryScalarReturnItem`1.ScalarDataItem">
+            <summary>
+            Data item which returns from the Query
+            </summary>
+        </member>
+        <member name="M:CSBUnlimited.DapperWrapper.QueryScalarReturnItem`1.#ctor">
+            <summary>
+            Initialize to default values
+            </summary>
+        </member>
         <member name="T:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1">
             <summary>
             Use when execute query with single query with single row of data from DB
@@ -636,7 +668,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1.ReturnValue">
             <summary>
-            Status defined by the SP
+            Return value that return from stored procedure
             </summary>
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1.ReturnParametersCollection">
@@ -646,7 +678,7 @@
         </member>
         <member name="P:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1.DataItem">
             <summary>
-            Data item which returns from teh SP. 
+            Data item which returns from the SP. 
             </summary>
         </member>
         <member name="M:CSBUnlimited.DapperWrapper.QuerySingleOrDefaultReturnItem`1.#ctor">

@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSBUnlimited.DapperWrapper.Core", "CSBUnlimited.DapperWrapper.Core\CSBUnlimited.DapperWrapper.Core.csproj", "{CD2F05EB-7AD0-4F81-9B79-1E16363C92BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSBUnlimited.DapperWrapper.DataAccess", "CSBUnlimited.DapperWrapper.DataAccess\CSBUnlimited.DapperWrapper.DataAccess.csproj", "{ACCB4773-1B02-4F20-9F06-D0FA3731BE0E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSBUnlimited.DapperWrapper.ViewModels", "CSBUnlimited.DapperWrapper.ViewModels\CSBUnlimited.DapperWrapper.ViewModels.csproj", "{B999B91B-43C2-4641-BDC7-DBD336998FF3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSBUnlimited.DapperWrapper.DataAccess.Core", "CSBUnlimited.DapperWrapper.DataAccess.Core\CSBUnlimited.DapperWrapper.DataAccess.Core.csproj", "{F8D53651-FCEC-4B37-9623-0529648CB0F9}"
@@ -23,10 +21,6 @@ Global
 		{CD2F05EB-7AD0-4F81-9B79-1E16363C92BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD2F05EB-7AD0-4F81-9B79-1E16363C92BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD2F05EB-7AD0-4F81-9B79-1E16363C92BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACCB4773-1B02-4F20-9F06-D0FA3731BE0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACCB4773-1B02-4F20-9F06-D0FA3731BE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACCB4773-1B02-4F20-9F06-D0FA3731BE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACCB4773-1B02-4F20-9F06-D0FA3731BE0E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B999B91B-43C2-4641-BDC7-DBD336998FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B999B91B-43C2-4641-BDC7-DBD336998FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B999B91B-43C2-4641-BDC7-DBD336998FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
