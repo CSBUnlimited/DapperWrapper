@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using System;
 using System.Data;
+using CSBUnlimited.DapperWrapper.Core;
 
 namespace CSBUnlimited.DapperWrapper.Base
 {
@@ -150,88 +151,55 @@ namespace CSBUnlimited.DapperWrapper.Base
         }
 
         /// <summary>
-        /// Open connection for there respective Database
+        /// Get Dynamic Parameters And Return Db Parameters By DbParameters
         /// </summary>
-        protected abstract void OpenConnection();
-
-        /// <summary>
-        /// Close connection with database
-        /// </summary>
-        protected virtual void CloseConnection()
+        /// <param name="parametersCollection">Given DB parameters list</param>
+        /// <param name="isReturnValueExists">Return value is required or not</param>
+        /// <param name="dynamicParameters">Output. Dynamic Parameters</param>
+        /// <param name="returnParameterCollection">Output. Return DB parameter list</param>
+        protected void GetDynamicParametersAndReturnDbParametersByDbParameters(IDbParameterList parametersCollection,
+            bool isReturnValueExists, out DynamicParameters dynamicParameters, out IDbParameterList returnParameterCollection)
         {
-            if (Connection.State != ConnectionState.Closed)
-                Connection.Close();
+            returnParameterCollection = new DbParameterList();
+            dynamicParameters = new DynamicParameters();
 
-            Transaction?.Dispose();
+            foreach (DbDataParameter parameter in parametersCollection)
+            {
+                dynamicParameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
 
-            Connection.Dispose();
+                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
+                {
+                    returnParameterCollection.Add(parameter);
+                }
+            }
+
+            if (isReturnValueExists)
+            {
+                dynamicParameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
+            }
         }
 
         /// <summary>
-        /// To track and open connection for a query
+        /// Set Return Item By Return Db Parameters
         /// </summary>
-        protected virtual void OpenConnectionForQueryExecution()
+        /// <param name="returnDbDataParameters">Output. Returning Db Parameter List</param>
+        /// <param name="dynamicParameters">Output. Dynamic Parameters</param>
+        /// <param name="isReturnValueExists">Return value required or not</param>
+        /// <param name="returnItem">IReturnItem referenced object</param>
+        protected void SetReturnItemByReturnDbParameters(IDbParameterList returnDbDataParameters, DynamicParameters dynamicParameters, bool isReturnValueExists, IReturnItem returnItem)
         {
-            if (_isQueryExecutionStarted)
-                return;
-
-            if (Transaction?.Connection != null)
-                return;
-
-            OpenConnection();
-            _isQueryExecutionStarted = true;
-        }
-
-        /// <summary>
-        /// To track and close connection with database
-        /// </summary>
-        protected virtual void CloseConnectionForQueryExecution()
-        {
-            if (!_isQueryExecutionStarted)
-                return;
-
-            CloseConnection();
-            _isQueryExecutionStarted = false;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Begin a transaction
-        /// </summary>
-        public virtual void BeginTransaction()
-        {
-            if (_isTransactionStarted)
-                return;
-
-            Transaction = Connection.BeginTransaction();
-            _isTransactionStarted = true;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Commit a transaction
-        /// </summary>
-        public virtual void CommitTransaction()
-        {
-            if (_isTransactionStarted)
-                return;
-
-            Transaction.Commit();
-            _isTransactionStarted = false;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Rollback a transaction
-        /// </summary>
-        public virtual void RollbackTransaction()
-        {
-            if (!_isTransactionStarted)
-                return;
-
-            Transaction.Rollback();
-            _isTransactionStarted = false;
-            Transaction.Dispose();
+            if (returnDbDataParameters.Count > 0)
+            {
+                foreach (DbDataParameter parameter in returnDbDataParameters)
+                {
+                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, dynamicParameters);
+                }
+                returnItem.ReturnParametersCollection = returnDbDataParameters;
+            }
+            if (isReturnValueExists)
+            {
+                returnItem.ReturnValue = dynamicParameters.Get<int>(ReturnValueParameterName);
+            }
         }
 
         /// <inheritdoc />

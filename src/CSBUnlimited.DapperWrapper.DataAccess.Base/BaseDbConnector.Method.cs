@@ -17,44 +17,15 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryScalarReturnItem<T> ExecuteScalarByCommandType<T>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryScalarReturnItem<T> returnItem = new QueryScalarReturnItem<T>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             returnItem.ScalarDataItem = ExecuteScalar<T>(sqlQuery, commandType, parameters);
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -70,44 +41,15 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual NonQueryReturnItem ExecuteNonQueryByCommandType(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             NonQueryReturnItem returnItem = new NonQueryReturnItem();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             returnItem.EffectedRowsCount = ExecuteNonQuery(sqlQuery, commandType, parameters);
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -124,44 +66,15 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryReturnItem<T> ExecuteQueryByCommandType<T>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryReturnItem<T> returnItem = new QueryReturnItem<T>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             returnItem.DataItemList = ExecuteQuery<T>(sqlQuery, commandType, parameters);
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -178,44 +91,15 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QuerySingleOrDefaultReturnItem<T> ExecuteQuerySingleOrDefaultByCommandType<T>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QuerySingleOrDefaultReturnItem<T> returnItem = new QuerySingleOrDefaultReturnItem<T>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             returnItem.DataItem = ExecuteSingleOrDefaultQuery<T>(sqlQuery, commandType, parameters);
-
             CloseConnectionForQueryExecution();
-
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -231,28 +115,13 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleReturnItem ExecuteQueryMultipleByCommandType(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleReturnItem returnItem = new QueryMultipleReturnItem();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
-
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
+            
             IList<dynamic> returnedLists = new List<dynamic>();
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 while (!gridReader.IsConsumed)
@@ -260,25 +129,11 @@ namespace CSBUnlimited.DapperWrapper.Base
                     returnedLists.Add(gridReader.Read());
                 }
             }
-
             CloseConnectionForQueryExecution();
 
             returnItem.DataLists = returnedLists;
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -296,48 +151,19 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleSingleAndListReturnItem<TFirst, TSecond> ExecuteQueryMultipleSingleWithListByCommandType<TFirst, TSecond>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleSingleAndListReturnItem<TFirst, TSecond> returnItem = new QueryMultipleSingleAndListReturnItem<TFirst, TSecond>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 returnItem.FirstItem = gridReader.ReadSingleOrDefault<TFirst>();
                 returnItem.SecondCollection = gridReader.Read<TSecond>();
             }
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -355,48 +181,19 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleListsReturnItem<TFirst, TSecond> ExecuteQueryMultipleByCommandType<TFirst, TSecond>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleListsReturnItem<TFirst, TSecond> returnItem = new QueryMultipleListsReturnItem<TFirst, TSecond>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 returnItem.FirstCollection = gridReader.Read<TFirst>();
                 returnItem.SecondCollection = gridReader.Read<TSecond>();
             }
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -415,49 +212,20 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleListsReturnItem<TFirst, TSecond, TThird> ExecuteQueryMultipleByCommandType<TFirst, TSecond, TThird>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleListsReturnItem<TFirst, TSecond, TThird> returnItem = new QueryMultipleListsReturnItem<TFirst, TSecond, TThird>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 returnItem.FirstCollection = gridReader.Read<TFirst>();
                 returnItem.SecondCollection = gridReader.Read<TSecond>();
                 returnItem.ThirdCollection = gridReader.Read<TThird>();
             }
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -477,26 +245,11 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth> ExecuteQueryMultipleByCommandType<TFirst, TSecond, TThird, TForth>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth> returnItem = new QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 returnItem.FirstCollection = gridReader.Read<TFirst>();
@@ -504,23 +257,9 @@ namespace CSBUnlimited.DapperWrapper.Base
                 returnItem.ThirdCollection = gridReader.Read<TThird>();
                 returnItem.FourthCollection = gridReader.Read<TForth>();
             }
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -541,26 +280,11 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth> ExecuteQueryMultipleByCommandType<TFirst, TSecond, TThird, TForth, TFifth>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth> returnItem = new QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 returnItem.FirstCollection = gridReader.Read<TFirst>();
@@ -569,23 +293,9 @@ namespace CSBUnlimited.DapperWrapper.Base
                 returnItem.FourthCollection = gridReader.Read<TForth>();
                 returnItem.FifthCollection = gridReader.Read<TFifth>();
             }
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -607,26 +317,11 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth> ExecuteQueryMultipleByCommandType<TFirst, TSecond, TThird, TForth, TFifth, TSixth>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth> returnItem = new QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 returnItem.FirstCollection = gridReader.Read<TFirst>();
@@ -636,23 +331,9 @@ namespace CSBUnlimited.DapperWrapper.Base
                 returnItem.FifthCollection = gridReader.Read<TFifth>();
                 returnItem.SixthCollection = gridReader.Read<TSixth>();
             }
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -675,26 +356,11 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh> ExecuteQueryMultipleByCommandType<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh> returnItem = new QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 returnItem.FirstCollection = gridReader.Read<TFirst>();
@@ -705,23 +371,9 @@ namespace CSBUnlimited.DapperWrapper.Base
                 returnItem.SixthCollection = gridReader.Read<TSixth>();
                 returnItem.SeventhCollection = gridReader.Read<TSeventh>();
             }
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -745,26 +397,11 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth> ExecuteQueryMultipleByCommandType<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth> returnItem = new QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 returnItem.FirstCollection = gridReader.Read<TFirst>();
@@ -776,23 +413,9 @@ namespace CSBUnlimited.DapperWrapper.Base
                 returnItem.SeventhCollection = gridReader.Read<TSeventh>();
                 returnItem.EighthCollection = gridReader.Read<TEighth>();
             }
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -817,26 +440,11 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth> ExecuteQueryMultipleByCommandType<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth> returnItem = new QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 returnItem.FirstCollection = gridReader.Read<TFirst>();
@@ -849,23 +457,9 @@ namespace CSBUnlimited.DapperWrapper.Base
                 returnItem.EighthCollection = gridReader.Read<TEighth>();
                 returnItem.NinethCollection = gridReader.Read<TNineth>();
             }
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
@@ -891,26 +485,11 @@ namespace CSBUnlimited.DapperWrapper.Base
         protected virtual QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth, TTenth> ExecuteQueryMultipleByCommandType<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth, TTenth>(string sqlQuery, CommandType commandType, IDbParameterList parametersCollection, bool isReturnValueExists)
         {
             QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth, TTenth> returnItem = new QueryMultipleListsReturnItem<TFirst, TSecond, TThird, TForth, TFifth, TSixth, TSeventh, TEighth, TNineth, TTenth>();
-            IDbParameterList returnParameterList = new DbParameterList();
-            DynamicParameters parameters = new DynamicParameters();
 
-            foreach (DbDataParameter parameter in parametersCollection)
-            {
-                parameters.Add(parameter.ParameterName, parameter.Value, parameter.DbType, parameter.Direction);
-
-                if (parameter.Direction == ParameterDirection.Output || parameter.Direction == ParameterDirection.InputOutput)
-                {
-                    returnParameterList.Add(parameter);
-                }
-            }
-
-            if (isReturnValueExists)
-            {
-                parameters.Add(ReturnValueParameterName, dbType: DbType.Int32, direction: ParameterDirection.ReturnValue, size: ReturnValueSize);
-            }
+            GetDynamicParametersAndReturnDbParametersByDbParameters(parametersCollection, isReturnValueExists,
+                out DynamicParameters parameters, out IDbParameterList returnParameterList);
 
             OpenConnectionForQueryExecution();
-
             using (SqlMapper.GridReader gridReader = ExecuteQueryMultiple(sqlQuery, commandType, parameters))
             {
                 returnItem.FirstCollection = gridReader.Read<TFirst>();
@@ -924,23 +503,9 @@ namespace CSBUnlimited.DapperWrapper.Base
                 returnItem.NinethCollection = gridReader.Read<TNineth>();
                 returnItem.TenthCollection = gridReader.Read<TTenth>();
             }
-
             CloseConnectionForQueryExecution();
 
-            if (returnParameterList.Count > 0)
-            {
-                foreach (DbDataParameter parameter in returnParameterList)
-                {
-                    parameter.Value = GetOutputParameterValue(parameter.ParameterName, parameter.DbType, parameters);
-                }
-
-                returnItem.ReturnParametersCollection = returnParameterList;
-            }
-
-            if (isReturnValueExists)
-            {
-                returnItem.ReturnValue = parameters.Get<int>(ReturnValueParameterName);
-            }
+            SetReturnItemByReturnDbParameters(returnParameterList, parameters, isReturnValueExists, returnItem);
 
             return returnItem;
         }
