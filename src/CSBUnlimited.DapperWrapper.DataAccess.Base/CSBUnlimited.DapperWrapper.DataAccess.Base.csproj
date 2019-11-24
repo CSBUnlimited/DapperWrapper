@@ -14,8 +14,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="1.50.5" />
+    <PackageReference Include="Dapper" Version="2.0.30" />
   </ItemGroup>
+
+  <!--<ItemGroup>
+    <Compile Update="BaseDbConnector.*.cs">
+      <DependentUpon>BaseDbConnector.cs</DependentUpon>
+    </Compile>
+    <Compile Update="BaseDbConnector.ExecuteAsync.cs">
+      <DependentUpon>BaseDbConnector.Execute.cs</DependentUpon>
+    </Compile>
+    <Compile Update="BaseDbConnector.MethodsAsync.cs">
+      <DependentUpon>BaseDbConnector.Methods.cs</DependentUpon>
+    </Compile>
+    <Compile Update="BaseDbConnector.SqlTextAsync.cs">
+      <DependentUpon>BaseDbConnector.SqlText.cs</DependentUpon>
+    </Compile>
+    <Compile Update="BaseDbConnector.StoredProcedureAsync.cs">
+      <DependentUpon>BaseDbConnector.StoredProcedure.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>-->
 
   <ItemGroup>
     <ProjectReference Include="..\CSBUnlimited.DapperWrapper.Core\CSBUnlimited.DapperWrapper.Core.csproj" />

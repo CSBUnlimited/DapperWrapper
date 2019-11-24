@@ -4,7 +4,7 @@
     /// Basic items required for return item.
     /// Only for internal usage not for external usage
     /// </summary>
-    internal interface IReturnItem
+    public interface IReturnItem
     {
         /// <summary>
         /// SReturn value that return from stored procedure
