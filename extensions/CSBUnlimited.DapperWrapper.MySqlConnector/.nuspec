@@ -2,7 +2,7 @@
 <package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>CSBUnlimited.DapperWrapper.MySqlConnector</id>
-    <version>1.0.1-beta</version>
+    <version>1.0.2-beta</version>
     <title>CSBUnlimited DapperWrapper MySqlConnector</title>
     <authors>Chathuranga Basnayake</authors>
     <owners>CSBUnlimited</owners>
@@ -22,7 +22,7 @@ Included features.
     <copyright>Copyright 2019 CSBUnlimited</copyright>
     <tags>CSBUnlimited, CSB, Dapper, DapperWrapper, CSBUnlimited DapperWrapper, CSB DapperWrapper, MySqlConnector, DapperWrapper MySqlConnector</tags>
     <dependencies>
-      <dependency id="CSBUnlimited.DapperWrapper" version="0.14.1-beta" />
+      <dependency id="CSBUnlimited.DapperWrapper" version="0.15.0-beta" />
       <dependency id="MySql.Data" version="8.0.15" />
     </dependencies>
     <summary>A high performance Micro-ORM that wraps Dapper ORM with extended functionality and extendability.</summary>
